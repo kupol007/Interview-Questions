@@ -1,0 +1,5 @@
+What is a fetchedResultController ?
+
+A controller that you use to manage the results of a Core Data fetch request and display data to the user.
+
+A controller that you use to manage the results of a Core Data fetch request and display data to the user.
