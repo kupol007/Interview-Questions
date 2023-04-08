@@ -1,0 +1,21 @@
+What does the Codable protocol do in Swift?
+
+CodableThe protocol in Swift provides a standard and easy-to-use way to encode and decode custom data types to and from various formats, such as JSON and property lists. CodableThe protocol combines two protocols, Encodable and Decodable, to provide a single unified way to perform encoding and decoding.
+
+To use the Codable protocol, you simply define your custom data type and make it conform to the Codable protocol. Swift will automatically generate the necessary encoding and decoding methods for you, based on the names and types of the properties in your data type.
+
+For example, consider a struct representing a person:
+
+struct Person: Codable {
+     let name: String
+     let age: Int
+}
+You can easily encode an instance of this struct to JSON data:
+
+let person = Person(name: "John", age: 25)
+let data = try JSONEncoder().encode(person)
+And then decode that data back into a struct:
+
+let decodedPerson = try JSONDecoder().decode(Person.self, from: data)
+CodableThe protocol is a powerful and convenient way to work with data in Swift, and it provides a uniform and consistent way to encode and decode custom data types, regardless of the format you are working with.
+
