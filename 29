@@ -1,0 +1,11 @@
+How does SpriteKit differ from SceneKit?
+
+SpriteKit and SceneKit are both graphics rendering frameworks provided by Apple for building games and other interactive applications, but they differ in several ways.
+
+SpriteKit is a 2D graphics rendering framework that provides a high-level API for building 2D games and other interactive applications. It provides support for 2D graphics, physics simulation, animation, and user input handling. SpriteKit is designed to be easy to use, and provides a high-level API for many common tasks, while still providing low-level access to the underlying graphics and physics engines for advanced use cases.
+
+SceneKit, on the other hand, is a 3D graphics rendering framework that provides a high-level API for building 3D games and other interactive applications. It provides support for 3D graphics, physics simulation, animation, and user input handling. SceneKit is designed to be easy to use, and provides a high-level API for many common tasks, while still providing low-level access to the underlying graphics and physics engines for advanced use cases.
+
+Both SpriteKit and SceneKit sit on top of Metal, Apple’s low-level graphics rendering framework, and can take advantage of its performance and efficiency. This allows both frameworks to provide high-quality graphics and animation with good performance on Apple’s devices.
+
+Additionally, it is possible to mix 2D and 3D graphics in a single application by using both SpriteKit and SceneKit together. For example, a 2D game might use SpriteKit for the user interface and game elements, while using SceneKit for the game world and environment.
