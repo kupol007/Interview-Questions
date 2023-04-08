@@ -1,0 +1,7 @@
+Define Capture list ?
+
+If you want to capture the value of a variable at the point of the closure creation, instead of having it evaluate only when the closure executes, you can use a capture list.
+
+Capture lists are written between square brackets right after the closure’s opening bracket (and before the closure’s arguments / return type if any)
+
+To capture the value of a variable at the point of the closure’s creation (instead of a reference to the variable itself), you can use the [localVar = varToCapture]capture list.
