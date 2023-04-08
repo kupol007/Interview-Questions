@@ -1,0 +1,3 @@
+Explain generics in Swift ?
+
+Generics create code that does not get specific about underlying data types. A good detailed article.
