@@ -1,0 +1,9 @@
+filter VS reduce
+
+Use filter to loop over a collection and return an Array containing only those elements that match an include condition.
+
+Use reduce to combine all items in a collection to create a single new value.
+
+
+
+To see all methods available from Sequence, take a look at the Sequence docs.
