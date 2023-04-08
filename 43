@@ -1,0 +1,3 @@
+Explain Forced Unwrapping ?
+
+When we define a variable as optional, then to get the value from it, we need to unwrap it. This just means putting an exclamation mark at the end of the variable.
