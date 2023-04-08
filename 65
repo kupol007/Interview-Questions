@@ -1,0 +1,8 @@
+Explain Initializer Delegation for Value Types ?
+
+Initializers can call other initializers to perform part of an instance’s initialization. This process, known as initializer delegation, avoids duplicating code across multiple initializers.
+
+Note: Initializer delegation works differently for value types and class types. It is simple for Value types, since they do not support inheritance. Classes have additional responsibilities for ensuring that all stored properties they inherit are assigned a suitable value during initialization.
+
+By defining a custom initializer for a value type, access to the default initializer for that type is restricted. This constraint prevents a situation in which additional essential setup provided in a more complex initializer is accidentally circumvented by someone using one of the automatic initializers.
+
