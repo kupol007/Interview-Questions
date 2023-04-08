@@ -1,0 +1,15 @@
+Explain tabbar vs toolbar vs navigationbar: when to use which, can you combine them?
+
+The UINavigationBar class implements a control for navigating hierarchical content. It’s a bar, typically displayed at the top of the screen, containing buttons for navigating up and down a hierarchy. The primary properties are a left (back) button, a center title, and an optional right button.
+
+An instance of the UIToolbar class is a control for selecting one of many buttons, called toolbar items. A toolbar momentarily highlights or does not change the appearance of an item when tapped. Use the UITabBar class if you need a radio button style control.
+
+The UITabBar class implements a control for selecting one of two or more buttons, called items. The most common use of a tab bar is to implement a modal interface where tapping an item changes the selection.
+
+
+
+Класс UINavigationBar реализует элемент управления для навигации по иерархическому контенту. Это панель, обычно отображаемая в верхней части экрана, содержащая кнопки для навигации вверх и вниз по иерархии. Основными свойствами являются левая кнопка (назад), заголовок по центру и необязательная правая кнопка.
+
+Экземпляр класса UIToolbar - это элемент управления для выбора одной из многих кнопок, называемых элементами панели инструментов. Панель инструментов на мгновение выделяет элемент или не изменяет его внешний вид при нажатии. Используйте класс UITabBar, если вам нужен элемент управления стилем переключателя.
+
+Класс UITabBar реализует элемент управления для выбора одной из двух или более кнопок, называемых items. Наиболее распространенным использованием панели вкладок является реализация модального интерфейса, в котором нажатие на элемент изменяет выделение.
