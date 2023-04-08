@@ -1,0 +1,13 @@
+How Core Data behave with multi threading?
+
+Core Data expects to be run on a single thread. Some basic rules for accessing Core Data in a multithreaded application:
+
+NSManagedObject instances should never be passed from one thread to another. If you need to pass a managed object from one thread to another, you use a managed object's objectID property.
+You should never share managed object contexts between threads. This is a hard rule you shouldn’t break.
+Even though the NSPersistentStoreCoordinator class isn't thread safe either, the class knows how to lock itself if multiple managed object contexts request access, even if these managed object contexts live and operate on different threads.
+
+Ожидается, что Core Data будет выполняться в одном потоке. Некоторые основные правила доступа к основным данным в многопоточном приложении:
+
+Экземпляры NSManagedObject никогда не должны передаваться из одного потока в другой. Если вам нужно передать управляемый объект из одного потока в другой, вы используете свойство ObjectId управляемого объекта.
+Вы никогда не должны совместно использовать контексты управляемых объектов между потоками. Это жесткое правило, которое вы не должны нарушать.
+Несмотря на то, что класс NSPersistentStoreCoordinator также не является потокобезопасным, класс знает, как заблокировать себя, если несколько контекстов управляемых объектов запрашивают доступ, даже если эти контексты управляемых объектов существуют и работают в разных потоках.
