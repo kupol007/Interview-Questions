@@ -1,0 +1,12 @@
+Explain Enum and associated value ?
+
+An enumeration is a user-defined data type which consists of set of related values. Keyword enum is used to defined enumerated data type.
+
+You can define Swift enumerations to store associated values of any given type, and the value types can be different for each case of the enumeration if needed. Enumerations similar to these are known as discriminated unions, tagged unions, or variants in other programming languages.
+
+
+//Enum with Associated Values
+enum Barcode {
+  case upc(Int, Int, Int, Int)}
+  case qrCode(String)
+}
