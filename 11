@@ -13,3 +13,19 @@ let numbers = [1, 2, 3, 4, 5]
 let evenNumbers = numbers.compactMap { $0 % 2 == 0 ? $0 : nil }
 print(evenNumbers) // [2, 4]
 In summary, map returns an array of the same size as the original array, with the possibility of containing nil values, while compactMap returns an array with the same or fewer elements, without any nil values. You should choose map when you want to keep all of the original elements of the array and potentially include nil values in the result, and choose compactMap when you want to filter out nil values and return a non-nil result.
+
+
+
+map и compactMap - это функции более высокого порядка в Swift, которые работают с массивами, и обе они возвращают новый массив того же размера или меньше.
+
+map используется для преобразования каждого элемента массива в новое значение. Функция, переданная map, применяется к каждому элементу массива, и результат каждого вызова функции включается в результирующий массив. Если функция, переданная map, возвращает nil для любого элемента, результирующий массив будет содержать нулевые значения.
+
+пусть числа = [1, 2, 3, 4, 5]
+пусть doubledNumbers = numbers.map { $0 * 2 }
+выводит(doubledNumbers) // [2, 4, 6, 8, 10]
+compactMap похож на map, но он отфильтровывает любые нулевые значения из результирующего массива. Функция, переданная compactMap, применяется к каждому элементу массива, и любой элемент, для которого функция возвращает nil, не включается в результирующий массив.
+
+пусть числа = [1, 2, 3, 4, 5]
+пусть evenNumbers = числа.compactMap { $0 % 2 == 0 ? $0 : nil }
+печать(четные числа) // [2, 4]
+Таким образом, map возвращает массив того же размера, что и исходный массив, с возможностью содержать нулевые значения, в то время как compactMap возвращает массив с теми же или меньшим количеством элементов, без каких-либо нулевых значений. Вам следует выбрать map, когда вы хотите сохранить все исходные элементы массива и потенциально включить нулевые значения в результат, и выбрать compactMap, когда вы хотите отфильтровать нулевые значения и вернуть ненулевой результат.
