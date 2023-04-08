@@ -1,0 +1,10 @@
+What are the main differences between classes and structs in Swift?
+
+Classes and structs are two fundamental constructs in Swift for defining custom data types. They have several similarities, but there are also some important differences to be aware of:
+
+Inheritance: Classes can be subclassed, allowing you to create new classes that inherit properties and methods from existing classes. Structs cannot be subclassed and do not support inheritance.
+Reference vs. Value Types: Classes are reference types, meaning that when you create an instance of a class, you are creating a reference to an object stored in memory. Structs, on the other hand, are value types, meaning that when you create an instance of a struct, you are creating a unique copy of the struct’s data. This has implications for how you use and modify instances of classes and structs.
+Deinitialization: Classes can have a deinitializer, a special method that is called just before an instance of the class is deallocated from memory. Structs do not have deinitializers.
+Mutability: By default, properties in structs are mutable, meaning that you can change their values. Properties in classes are also mutable, but you can use the let keyword to make them constant.
+Method Syntax: Methods in classes and structs use the same syntax, but the way they access and modify properties can be different. For example, methods in structs cannot modify properties unless they are declared as mutating.
+In general, you should use structs for simple data types that do not require inheritance or reference semantics, and classes for more complex data types that need to be subclassed or passed around as references. The choice between classes and structs depends on the specific requirements of your project and the nature of the data you are working with.
