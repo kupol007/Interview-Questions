@@ -1,0 +1,4 @@
+What is very important while updating the UI in a multithreaded application? How can you do that?
+
+Update only on main thread or main queue.
+
