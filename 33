@@ -1,0 +1,5 @@
+open VS public access control ?
+
+public classes and class members can only be subclassed and overridden within the defining module (target).
+open classes and class members can be subclassed and overridden both within and outside the defining module (target).
+Consider framework or module Alpha with public class, public method, open class and open method, framework Beta imports Alpha, both classes and methods will be available to framework B but only open class is subclassable and open methods can be override.
