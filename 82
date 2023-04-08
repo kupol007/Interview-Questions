@@ -1,0 +1,3 @@
+Explain Difference between points and pixels ?
+
+A pixel on iOS is the full resolution of the device, which means if I have an image that is 100x100 pixels in length, then the phone will render it 100x100 pixels on a standard non-retina device. However, because newer iPhones have a quadrupled pixel density, that same image will render at 100x100 pixels, but look half that size. A point is a standard length equivalent to 1x1 pixels on a non-retina device, and 2x2 pixels on a retina device.
