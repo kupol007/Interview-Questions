@@ -1,0 +1,6 @@
+Explain Implicitly Assigned Raw Values ?
+
+When you’re working with enumerations that store integer or string raw values, you don’t have to explicitly assign a raw value for each case. When you don’t, Swift will automatically assign the values for you.
+
+For instance, when integers are used for raw values, the implicit value for each case is one more than the previous case. If the first case doesn’t have a value set, its value is 0.
+
