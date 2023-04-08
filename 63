@@ -1,0 +1,6 @@
+Explain Parameter Names and Argument Labels ? How to initialize without Argument Label ?
+
+As with function and method parameters, initialization parameters can have both a parameter name for use within the initializer’s body and an argument label for use when calling the initializer. Swift provides an automatic argument label for every parameter in an initializer if you don’t provide one, since initialiser don’t have a name as compared to functions. Without aurgument label in initializers compile-time throws an error.
+
+Initializer Parameters Without Argument Labels: If you do not want to use an argument label for an initializer parameter, write an underscore (_) instead of an explicit argument label for that parameter to override the default behavior.
+
