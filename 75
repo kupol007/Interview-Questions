@@ -1,0 +1,22 @@
+Value type vs Reference type ?
+
+Value Types:
+
+Keep a unique copy of their data.
+Copies are almost cheap.
+Runs in constant O(n) time. Since they use fix number of reference count, based on size of the type.
+While using let, instance of value type and its properties cannot change.
+Mutability is easy.
+Highly optimistimized by compiler.
+Shares field inline.
+Copy On Write: compiler will make copy of data of Value type when mutation is made. It uses intelligent memory to determine when buffer can be shared.
+Reference Type:
+
+Share single copy of their data.
+In Objective-C, Everything is inherit from NSObject, is stored as reference type..
+faster to assign a refence to a variable.
+While using let, we can still mutate its instance itself.
+For Mutability, implement immutable and mutable class variants.
+Heap is expensive.
+Takes longer time to initialize.
+Objects have 2 machine word of overhead: one points to mata class objects and other contains reference count and other booking keep data objects.
