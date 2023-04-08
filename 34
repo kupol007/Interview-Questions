@@ -4,3 +4,8 @@ Preventing Overrides: You can prevent a method, property, or subscript from bein
 
 Any attempt to override a final method, property, or subscript in a subclass or subclass a final class are reported as a compile-time error. Methods, properties, or subscripts that you add to a class in an extension can also be marked as final within the extension’s definition.
 
+
+
+Предотвращение переопределений: Вы можете предотвратить переопределение метода, свойства или индекса, пометив его как окончательный. Сделайте это, написав модификатор final перед вводным ключевым словом метода, свойства или индекса (например, final var, final func, final class func и final indexript).
+
+Любая попытка переопределить конечный метод, свойство или индекс в подклассе или подкласс конечного класса сообщается как ошибка времени компиляции. Методы, свойства или индексы, которые вы добавляете к классу в расширении, также могут быть помечены как окончательные в определении расширения.
