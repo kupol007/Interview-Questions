@@ -1,0 +1,6 @@
+Explain NSPersistentContainer
+
+The persistent container creates and returns a container, having loaded the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
+
+
+Постоянный контейнер создает и возвращает контейнер, загрузив в него хранилище для приложения. Это свойство необязательно, поскольку существуют допустимые условия ошибки, которые могут привести к сбою при создании хранилища.
