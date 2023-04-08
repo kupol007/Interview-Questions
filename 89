@@ -1,0 +1,3 @@
+What is UIButton hierarchy ?
+
+UIButton -> UIControl -> UIView -> UIResponder ->NSObject.
