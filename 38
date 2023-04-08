@@ -1,0 +1,5 @@
+map vs flatmap
+
+Use map to loop over a collection and apply the same operation to each element in the collection. The map function returns an array containing the results of applying a mapping or transform function to each item
+
+Use flatMap to iterate and flatten a collection of collections. It is also removes optionals and nil in resultant array. More detail.
