@@ -1,0 +1,63 @@
+How would you explain protocol-oriented programming to a new Swift developer?
+
+Protocol-oriented programming (POP) is a programming paradigm that emphasizes the use of protocols to design and implement software. In Swift, protocols are similar to interfaces in other programming languages, but they are more powerful and flexible.
+
+In POP, you start by defining protocols that specify the behavior or capabilities that a type should have. Then, you can create structs, classes, or enums that adopt those protocols, implementing their requirements as needed. This allows you to create modular, composable code that is easy to test and reuse.
+
+The key advantage of POP is that it encourages code reuse and reduces code duplication. By defining protocols that capture common behaviors or capabilities, you can create a set of building blocks that can be combined in different ways to solve different problems. This can lead to more maintainable and extensible code.
+
+In Swift, you can also use protocol extensions to provide default implementations of protocol methods, which can further reduce code duplication and make it easier to create new types that adopt the same protocols.
+
+Let’s see an example of how you could implement POP in Swift:
+
+// Define a protocol for a shape
+protocol Shape {
+    var area: Double { get }
+}
+
+// Define a protocol for a 3D shape
+protocol ThreeDimensionalShape: Shape {
+    var volume: Double { get }
+}
+
+// Define a protocol for a 2D shape
+protocol TwoDimensionalShape: Shape {
+    var perimeter: Double { get }
+}
+
+// Create a struct for a rectangle that adopts the TwoDimensionalShape protocol
+struct Rectangle: TwoDimensionalShape {
+    var width: Double
+    var height: Double
+    
+    var perimeter: Double {
+        return 2 * (width + height)
+    }
+    
+    var area: Double {
+        return width * height
+    }
+}
+
+// Create a struct for a sphere that adopts the ThreeDimensionalShape protocol
+struct Sphere: ThreeDimensionalShape {
+    var radius: Double
+    
+    var area: Double {
+        return 4 * Double.pi * radius * radius
+    }
+    
+    var volume: Double {
+        return (4 / 3) * Double.pi * radius * radius * radius
+    }
+}
+
+// Use the protocols to calculate the area and volume of different shapes
+let rectangle = Rectangle(width: 10, height: 5)
+let sphere = Sphere(radius: 3)
+
+print(rectangle.area) // 50
+print(rectangle.perimeter) // 30
+print(sphere.area) // 113.09733552923254
+print(sphere.volume) // 113.09733552923254
+In this example, we defined three protocols for shapes, and then created two structs that adopt the protocols. We then used the protocols to calculate the area and volume of different shapes.
