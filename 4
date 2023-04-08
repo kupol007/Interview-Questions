@@ -1,0 +1,15 @@
+How is a dictionary different from an array in Swift?
+
+In Swift, a dictionary and an array are both data structures used to store collections of information, but they differ in how they store and access the data.
+
+An array is a linear collection of values, where each value is assigned a unique index. In Swift, arrays are defined using square brackets [ ] and their elements can be accessed using the index number, like this:
+
+let names = ["John", "Jane", "Jim"]
+let firstName = names[0] // "John"
+A dictionary is a collection of key-value pairs, where each key is associated with a specific value. In Swift, dictionaries are defined using square brackets [:] and their elements can be accessed using the keys, like this:
+
+let ages = ["John": 25, "Jane": 30, "Jim": 35]
+let johnsAge = ages["John"] // 25
+As you can see, the key-value pairs in a dictionary are not ordered, unlike elements in an array. The key-value pairs can be used to look up the associated values, making dictionaries useful for mapping values to unique keys.
+
+Overall, arrays are best for ordered collections where elements can be accessed by index, while dictionaries are best for collections where values are associated with unique keys.
