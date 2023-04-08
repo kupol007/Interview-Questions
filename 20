@@ -8,3 +8,13 @@ Model: This component represents the data of the application. It defines the str
 View: This component is responsible for presenting the data to the user. It displays the user interface and provides the user with a way to interact with the application.
 Controller: This component acts as an intermediary between the model and the view. It receives user actions from the view, communicates with the model to process the actions, and updates the view with the results.
 On Apple’s platforms such as iOS, macOS, and watchOS, MVC is a commonly used design pattern. In iOS development, for example, a view is represented by a storyboard or a set of XIB files, a model is represented by a set of data objects or classes, and a controller is represented by a view controller. The view controller is responsible for managing the view hierarchy, updating the view with data from the model, and responding to user interactions by invoking methods on the model.
+
+
+MVC расшифровывается как Model-View-Controller, который представляет собой шаблон проектирования, обычно используемый при разработке программного обеспечения для разделения приложения на три взаимосвязанных компонента: модель, представление и контроллер. Цель использования MVC - добиться разделения задач, упростив обслуживание, тестирование и модификацию приложения.
+
+Вот краткое объяснение каждого компонента:
+
+Модель: Этот компонент представляет данные приложения. Он определяет структуру и поведение данных и взаимодействует с контроллером для обработки действий пользователя.
+Представление: Этот компонент отвечает за представление данных пользователю. Он отображает пользовательский интерфейс и предоставляет пользователю способ взаимодействия с приложением.
+Контроллер: Этот компонент действует как посредник между моделью и представлением. Он получает действия пользователя из представления, взаимодействует с моделью для обработки действий и обновляет представление результатами.
+На платформах Apple, таких как iOS, macOS и watchOS, MVC является широко используемым шаблоном проектирования. Например, при разработке iOS представление представлено раскадровкой или набором файлов XIB, модель представлена набором объектов данных или классов, а контроллер представлен контроллером представления. Контроллер представления отвечает за управление иерархией представлений, обновление представления данными из модели и реагирование на взаимодействия пользователя путем вызова методов в модели.
