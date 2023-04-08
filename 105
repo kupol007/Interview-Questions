@@ -1,0 +1,6 @@
+What are the Limitations of Persistent Store Security ?
+
+Apple Docs says: Core Data makes no guarantees regarding the security of persistent stores from untrusted sources (as opposed to stores generated internally) and cannot detect whether files have been maliciously modified. The SQLite store offers slightly better security than the XML and binary stores, but it should not be considered inherently secure. Note also that it is possible for data archived in the metadata to be tampered with independently of the store data. To ensure data security, use a technology such as an encrypted disk image.
+
+
+В документах Apple говорится: Core Data не дает никаких гарантий относительно безопасности постоянных хранилищ из ненадежных источников (в отличие от хранилищ, созданных внутри компании) и не может определить, были ли файлы злонамеренно изменены. Хранилище SQLite обеспечивает несколько лучшую безопасность, чем хранилища XML и двоичных файлов, но его не следует считать изначально безопасным. Обратите также внимание, что данные, заархивированные в метаданных, могут быть изменены независимо от данных хранилища. Чтобы обеспечить безопасность данных, используйте такую технологию, как зашифрованный образ диска.
