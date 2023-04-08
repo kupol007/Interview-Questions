@@ -1,0 +1,48 @@
+How would you explain delegates to a new Swift developer?
+
+Delegates are a design pattern in Swift that allow one object to delegate certain responsibilities or actions to another object. In other words, a delegate is a way for an object to communicate with another object and ask it to perform some actions on its behalf.
+
+In Swift, delegates are typically defined using a protocol. The protocol specifies a set of methods that the delegate object must implement in order to handle the relevant events or tasks. The object that uses the delegate (i.e. the delegating object) then assigns the delegate object to a property and calls the appropriate method(s) when necessary.
+
+For example: Suppose you have a view controller that displays a list of items in a table view. You want to allow the user to select an item from the list and have the view controller respond to that selection. You can use a delegate to accomplish this.
+
+First, you would define a protocol that specifies the methods that the delegate object must implement:
+
+protocol ItemSelectionDelegate: AnyObject {
+    func didSelectItem(_ item: String)
+}
+This protocol defines a single method didSelectItem(_:) that takes a string parameter representing the selected item.
+
+Next, you would create a property for the delegate object in your view controller:
+
+class ItemListViewController: UIViewController {
+    weak var delegate: ItemSelectionDelegate?
+    
+    // ...
+}
+The weak keyword is used to avoid retain cycles, which can cause memory leaks.
+
+When the user selects an item in the table view, you would call the appropriate method on the delegate object:
+
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let selectedItem = items[indexPath.row]
+    delegate?.didSelectItem(selectedItem)
+}
+Finally, you would have another object (such as another view controller) conform to the ItemSelectionDelegate protocol and assign itself as the delegate of the ItemListViewController:
+
+class AnotherViewController: UIViewController, ItemSelectionDelegate {
+    func didSelectItem(_ item: String) {
+        // handle the selected item
+    }
+
+    // ...
+
+    func showItemList() {
+        let itemListVC = ItemListViewController()
+        itemListVC.delegate = self
+        // present the view controller
+    }
+}
+The AnotherViewController conforms to the ItemSelectionDelegate protocol and assigns itself as the delegate of ItemListViewController. When the user selects an item in the table view, ItemListViewController calls the didSelectItem(_:) method on its delegate object (which is AnotherViewController in this case), and the selected item is passed as a parameter.
+
+That’s a basic overview of how delegates work in Swift. Delegates can be used in many different contexts, and they are a powerful tool for building flexible and modular code.
