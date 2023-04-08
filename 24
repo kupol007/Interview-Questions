@@ -1,0 +1,11 @@
+What is functional programming?
+
+In functional programming, the focus is on writing code that uses functions to perform operations on data, rather than modifying state directly through imperative programming.
+
+Functional programming in Swift is characterized by a few key concepts. First, Swift provides support for higher-order functions, which are functions that take other functions as parameters or return functions as results. This allows for powerful abstractions that can simplify complex operations on collections of data, such as mapping, filtering, or reducing.
+
+Swift also provides support for immutable data structures, which are data structures that cannot be modified after they are created. Immutable data structures are often used in functional programming to ensure that functions operate on a consistent view of the data, without the risk of external side-effects or race conditions.
+
+Another key aspect of functional programming in Swift is the use of closures, which are self-contained blocks of code that can capture and manipulate state from their surrounding context. Closures are used extensively in Swift for functional programming operations on collections, as well as for other operations such as asynchronous programming, error handling, and dependency injection.
+
+
