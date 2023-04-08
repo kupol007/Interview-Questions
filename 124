@@ -1,0 +1,28 @@
+What is the best way to do multi threading in Core Data ?
+
+The best way, according to Marcus Zarra, is not the fastest, but it is by far the easiest and most maintainable. It relies on API’s that Apple introduced with iOS 6, which allows to define child MOCs and also specify a MOC’s concurrency type. The design that Zarra presents is based on how NSManagedDocument works and uses:
+
+A single persistent store coordinator.
+A private MOC which is the only one that actually accesses the PSC.
+A main MOC associated to the UI that is a child of the private MOC.
+Multiple child MOCs that are specific to secondary threads.
+
+Source: Infoq
+The nice thing about this design is that all changes in a child MOC will automatically propagate to its parent MOC, thus doing away with the need for merging.
+
+The main drawback of this design is its slowness, although only by a few percents, says Zarra. A tricky issue with it is that if too many async operations are carried through, there may be ripple effects on the UI, since its associated MOC will receive multiple changes in sequence that might not be coherent with one another. An important detail about this design is that it is best not to reuse child MOCs, which are cheap to create. On the other hand, long-lived child MOCs should be manually kept in sync with the main MOC, since changes are propagated only from child MOCs to their parent and not the other way round.
+
+
+
+
+Лучший способ, по мнению Маркуса Зарры, не самый быстрый, но он, безусловно, самый простой и ремонтопригодный. Он основан на API, который Apple представила в iOS 6, который позволяет определять дочерние MOC, а также указывать тип параллелизма MOC. Дизайн, который представляет Zarra, основан на том, как работает и использует NSManagedDocument:
+
+Единый постоянный координатор хранилища.
+Частный MOC, который является единственным, который фактически получает доступ к PSC.
+Основной MOC, связанный с пользовательским интерфейсом, который является дочерним элементом частного MOC.
+Несколько дочерних MOC, специфичных для вторичных потоков.
+
+Источник: Infoq
+Приятной особенностью этого дизайна является то, что все изменения в дочернем MOC будут автоматически распространяться на его родительский MOC, таким образом устраняя необходимость в слиянии.
+
+Главным недостатком этой конструкции является ее медлительность, хотя и всего на несколько процентов, говорит Зарра. Сложная проблема с этим заключается в том, что если выполняется слишком много асинхронных операций, могут возникнуть волновые эффекты в пользовательском интерфейсе, поскольку связанный с ним MOC будет получать множественные изменения в последовательности, которые могут не согласовываться друг с другом. Важной деталью этого дизайна является то, что лучше не использовать повторно дочерние MOC, создание которых обходится дешево. С другой стороны, дочерние MOC с длительным сроком службы следует вручную синхронизировать с основным MOC, поскольку изменения распространяются только от дочерних MOC к их родительским, а не наоборот.
