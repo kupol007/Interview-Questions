@@ -7,6 +7,13 @@ In Swift, delegates are typically defined using a protocol. The protocol specifi
 For example: Suppose you have a view controller that displays a list of items in a table view. You want to allow the user to select an item from the list and have the view controller respond to that selection. You can use a delegate to accomplish this.
 
 First, you would define a protocol that specifies the methods that the delegate object must implement:
+Делегаты - это шаблон проектирования в Swift, который позволяет одному объекту делегировать определенные обязанности или действия другому объекту. Другими словами, делегат - это способ для объекта взаимодействовать с другим объектом и просить его выполнить некоторые действия от его имени.
+
+В Swift делегаты обычно определяются с использованием протокола. Протокол определяет набор методов, которые объект-делегат должен реализовать, чтобы обрабатывать соответствующие события или задачи. Объект, который использует делегат (т.е. делегирующий объект), затем присваивает объекту делегата свойство и при необходимости вызывает соответствующий метод(ы).
+
+Например: Предположим, у вас есть контроллер представления, который отображает список элементов в tableview. Вы хотите разрешить пользователю выбирать элемент из списка и заставить контроллер представления реагировать на этот выбор. Вы можете использовать делегат для достижения этой цели.
+
+Во-первых, вы должны определить протокол, который определяет методы, которые должен реализовать объект делегата:
 
 protocol ItemSelectionDelegate: AnyObject {
     func didSelectItem(_ item: String)
@@ -23,12 +30,16 @@ class ItemListViewController: UIViewController {
 The weak keyword is used to avoid retain cycles, which can cause memory leaks.
 
 When the user selects an item in the table view, you would call the appropriate method on the delegate object:
+Ключевое слово weak используется, чтобы избежать циклов сохранения, которые могут привести к утечкам памяти.
+
+Когда пользователь выбирает элемент в табличном представлении, вы вызываете соответствующий метод для объекта делегата:
 
 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let selectedItem = items[indexPath.row]
     delegate?.didSelectItem(selectedItem)
 }
 Finally, you would have another object (such as another view controller) conform to the ItemSelectionDelegate protocol and assign itself as the delegate of the ItemListViewController:
+Наконец, у вас был бы другой объект (например, другой контроллер представления), соответствующий протоколу делегирования выбора элемента и назначающий себя делегатом ItemListViewController:
 
 class AnotherViewController: UIViewController, ItemSelectionDelegate {
     func didSelectItem(_ item: String) {
@@ -46,3 +57,8 @@ class AnotherViewController: UIViewController, ItemSelectionDelegate {
 The AnotherViewController conforms to the ItemSelectionDelegate protocol and assigns itself as the delegate of ItemListViewController. When the user selects an item in the table view, ItemListViewController calls the didSelectItem(_:) method on its delegate object (which is AnotherViewController in this case), and the selected item is passed as a parameter.
 
 That’s a basic overview of how delegates work in Swift. Delegates can be used in many different contexts, and they are a powerful tool for building flexible and modular code.
+
+
+Другой ViewController соответствует протоколу делегирования выбора элемента и назначает себя делегатом ItemListViewController. Когда пользователь выбирает элемент в табличном представлении, ItemListViewController вызывает метод didSelectItem(_:) для своего объекта-делегата (который в данном случае является AnotherViewController), и выбранный элемент передается в качестве параметра.
+
+Это общий обзор того, как делегаты работают в Swift. Делегаты могут использоваться в самых разных контекстах, и они являются мощным инструментом для создания гибкого и модульного кода.
