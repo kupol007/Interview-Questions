@@ -1,0 +1,5 @@
+Can we have relationship between entities of differenct Persistent store?
+
+You must be careful not to create relationships from instances in one persistent store to instances in another, as this is not supported by Core Data. If you need to create a relationship between entities in different stores, you typically use fetched properties.
+
+Вы должны быть осторожны, чтобы не создавать связи между экземплярами в одном постоянном хранилище и экземплярами в другом, поскольку это не поддерживается Core Data. Если вам нужно создать связь между сущностями в разных хранилищах, вы обычно используете выбранные свойства.
