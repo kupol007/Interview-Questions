@@ -1,0 +1,8 @@
+Explain Property observers ?
+
+Property observers observe and respond to changes in a property’s value. They are called every time a property’s value is set, even if the new value is the same as the property’s current value. You can add property observers to any stored properties, except for lazy . We can add property observers to ‘inherited’ property by method ‘overriding’.
+
+You have the option to define either or both of these observers on a property:
+
+willSet is called just before the value is stored, it’s passed the new property value as a constant parameter. You can specify a parameter else default name newValue is used.
+didSet is called immediately after the new value is stored, it’s passed a constant parameter containing the old property value. You can name the parameter or use the default parameter name of oldValue.
