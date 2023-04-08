@@ -1,0 +1,5 @@
+Explain unwind segue
+
+An unwind segue moves backward through one or more segues to return the user to a scene managed by an existing view controller. Nice Example.
+
+Переход unwind перемещается назад по одному или нескольким переходам, чтобы вернуть пользователя к сцене, управляемой существующим контроллером просмотра. Хороший пример.
