@@ -1,0 +1,5 @@
+How to synchronize contexts ?
+
+Your managed object context objects should listen for the NSManagedObjectContextDidSaveNotification to be notified when any context performs a save. When that occurs, you need each managed object context to call mergeChangesFromContextDidSaveNotification: with the notification that is posted from saving. This will merge all saved changed from one MOC to all of your others.
+
+Объекты контекста вашего управляемого объекта должны прослушивать NSManagedObjectContextDidSaveNotification, чтобы получать уведомления, когда какой-либо контекст выполняет сохранение. Когда это происходит, вам нужно, чтобы каждый контекст управляемого объекта вызывал mergeChangesFromContextDidSaveNotification: с уведомлением, которое публикуется при сохранении. Это объединит все сохраненные изменения из одного MOC во все остальные ваши файлы.
