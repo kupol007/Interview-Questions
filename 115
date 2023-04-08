@@ -1,0 +1,5 @@
+What is NSFetchRequest ?
+
+NSFetchRequest is the class responsible for fetching from Core Data. Fetch requests are both powerful and flexible. You can use fetch requests to fetch a set of objects meeting the provided criteria, individual values and more.
+
+NSFetchRequest - это класс, ответственный за выборку из основных данных. Запросы на выборку являются одновременно мощными и гибкими. Вы можете использовать запросы на выборку для извлечения набора объектов, соответствующих предоставленным критериям, индивидуальным значениям и многому другому.
