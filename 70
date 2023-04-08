@@ -1,0 +1,9 @@
+Explain Failable initialisers ?
+
+We cannot always assume that the initialization will always succeed for a struct, enum or class. It can fail for several reasons. It is sometimes useful to define a class, structure, or enumeration for which initialization can fail. You write a failable initializer by placing a question mark after the initkeyword (init?).
+
+Note: 1. You cannot define a failable and a nonfailable initializer with the same parameter types and names.
+
+2. In swift, the initializers won’t return anything. But objective -C does. In swift, You write return nil to trigger an initialization failure, you do not use the return keyword to indicate initialization success.
+
+A failable initializer creates an optional value of the type it initializes. You write return nil within a failable initializer to indicate a point at which initialization failure can be triggered. ie; if a condition fails, you can return nil .
