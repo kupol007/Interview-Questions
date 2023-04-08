@@ -1,0 +1,10 @@
+Non-Escaping and Escaping Closures
+
+The lifecycle of a non-escaping closure is simple: Pass a closure into a function -> The function runs the closure (or not) -> The function returns
+
+Escaping closure: A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns. we have to refer to self explicitly within the escaping closure. There are several ways to have a closure escape its containing function:
+
+Asynchronous execution: If you execute the closure asynchronously on a dispatch queue, the queue will hold onto the closure for you. You have no idea when the closure will be executed and there’s no guarantee it will complete before the function returns.
+
+Storage: Storing the closure to a global variable, property, or any other bit of storage that lives on past the function call means the closure has also escaped. More Detail: SwiftUnbox and Apple Docs.
+
