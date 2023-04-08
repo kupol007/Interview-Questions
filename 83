@@ -1,0 +1,4 @@
+Explain What is the responder chain ?
+
+The first object in the ResponderChain is called the First Responder. The responder chain is a series of linked responder objects. It starts with the first responder and end with the app object. If the first responder cannot handle an event, it forwards the event to the next responder in the responder chain. Apple Docs.
+
