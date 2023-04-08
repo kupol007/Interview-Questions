@@ -1,0 +1,4 @@
+Explain Drawbacks of UITableViews ?
+
+Only vertical scrolling capability which is covered by UICollectionView.
+
