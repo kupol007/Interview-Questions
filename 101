@@ -1,0 +1,15 @@
+How we can add multiple Persistent Store?
+
+With the help of Configuration in Managed Object Model we can achieve this. We can create multiple configurations and assign it to different persistence store.
+
+We want one configuration per store, and each entity should be added to one configuration only (in addition to the default configuration). It is possible to have entities in multiple configurations, but in that case you have to manually assign each object to a store.
+
+By creating one configuration per store and assigning each entity to a single configuration, we’ve enabled the core data frameworks to direct entities to different stores without needing any further interaction.
+
+
+
+С помощью настройки в модели управляемого объекта мы можем достичь этого. Мы можем создать несколько конфигураций и назначить их разным хранилищам сохраняемости.
+
+Нам нужна одна конфигурация для каждого хранилища, и каждый объект должен быть добавлен только в одну конфигурацию (в дополнение к конфигурации по умолчанию). Возможно наличие объектов в нескольких конфигурациях, но в этом случае вам придется вручную назначить каждый объект хранилищу.
+
+Создав одну конфигурацию для каждого хранилища и назначив каждому объекту отдельную конфигурацию, мы позволили core data framework направлять объекты в разные хранилища без необходимости какого-либо дальнейшего взаимодействия.
