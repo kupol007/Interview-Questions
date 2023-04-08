@@ -3,3 +3,9 @@ Define Access control ?
 Access control restricts access to parts of your code from the code in other source files and modules. This feature enables you to hide the implementation details of your code, and to specify a preferred interface through which that code can be accessed and used.
 
 In Swift 3 and swift 4, we have open, public, internal, fileprivate, and private for access control. Open access is the highest (least restrictive) access level and private access is the lowest (most restrictive) access level. Almost all entities in your code have a default access level of internal.
+
+
+
+Контроль доступа ограничивает доступ к частям вашего кода из кода в других исходных файлах и модулях. Эта функция позволяет вам скрыть детали реализации вашего кода и указать предпочтительный интерфейс, через который к этому коду можно получить доступ и использовать его.
+
+В Swift 3 и swift 4 у нас есть open, public, internal, file private и private для контроля доступа. Открытый доступ - это самый высокий (наименее ограничительный) уровень доступа, а частный доступ - самый низкий (наиболее ограничительный) уровень доступа. Почти все объекты в вашем коде имеют уровень доступа по умолчанию internal.
