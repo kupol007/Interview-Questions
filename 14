@@ -1,0 +1,34 @@
+What does it mean when we say “strings are collections in Swift”?
+
+In Swift, a string is considered to be a collection of characters. This means that a string can be treated as a sequence of individual characters, just like an array. This allows you to perform operations on a string that you would typically perform on an array, such as iterating through the characters, accessing individual characters, and performing transformations.
+
+For example, you can use a for loop to iterate through the characters in a string:
+
+let name = "John Doe"
+for char in name {
+   print(char)
+}
+// Output:
+// J
+// o
+// h
+// n
+// 
+// D
+// o
+// e
+You can also access individual characters in a string using the subscript syntax:
+
+let name = "John Doe"
+let firstChar = name[name.startIndex]
+print(firstChar)
+// Output: J
+And you can perform transformations on a string, such as converting it to upper-case or lower-case:
+
+let name = "John Doe"
+let upperCaseName = name.uppercased()
+print(upperCaseName)
+// Output: JOHN DOE
+In conclusion, when we say “strings are collections in Swift”, we mean that strings can be treated as collections of characters, and you can perform operations on strings that you would typically perform on arrays. This makes strings a very flexible and powerful data type in Swift, and it provides a convenient way to work with text data.
+
+
