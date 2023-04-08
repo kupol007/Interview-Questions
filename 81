@@ -1,0 +1,3 @@
+Explain Difference between UIWindow and UIView ?
+
+Windows do not have any visible content themselves but provide a basic container for your application’s views. Views define a portion of a window that you want to fill with some content. Apple Doc.
