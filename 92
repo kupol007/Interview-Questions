@@ -1,0 +1,5 @@
+What is intrinsic content size?
+
+With Auto Layout, a view’s content plays as important a role in its layout as its constraints. This is expressed through each view’s intrinsicContentSize, which describes the minimum space needed to express the full view content without squeezing or clipping that data. It derives from the natural properties of the content that each view presents.
+
+При автоматической компоновке содержимое представления играет такую же важную роль в его компоновке, как и его ограничения. Это выражается через intrinsicContentSize каждого представления, который описывает минимальное пространство, необходимое для отображения всего содержимого представления без сжатия или обрезки этих данных. Это вытекает из естественных свойств контента, который представляет каждое представление.
