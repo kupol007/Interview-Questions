@@ -1,0 +1,5 @@
+What are layer objects?
+
+Layer objects are data objects which represent visual content and are used by views to render their content. Custom layer objects can also be added to the interface to implement complex animations and other types of sophisticated visual effects. An introduction and getting stated tutorial by Raywenderlich.
+
+Объекты слоя - это объекты данных, которые представляют визуальный контент и используются представлениями для отображения своего содержимого. Пользовательские объекты слоя также могут быть добавлены в интерфейс для реализации сложной анимации и других типов сложных визуальных эффектов. Введение и руководство по началу работы от Рэя Вендерлиха.
