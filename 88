@@ -1,2 +1,37 @@
 How to make UITAbleView scrolling effective ?
 
+Scrolling in Table Views can be made efficient by following practices:
+
+Reuse cell instances: for specific type of cell you should have only one instance, no more.
+Don’t bind data at cellForRowAtIndexPath: method because at this time cell is not displayed yet. Instead use tableView:willDisplayCell:forRowAtIndexPath: method in the delegate of UITableView. https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/
+https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html#//apple_ref/occ/intfm/UITableViewDelegate/tableView:willDisplayCell:forRowAtIndexPath:
+https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableView_Class/#//apple_ref/occ/instm/UITableView/cellForRowAtIndexPath:
+
+Reduce areas where iOS performs useless blending: don’t use transparent backgrounds, check this out using iOS Simulator or Instruments; gradient will be done better without blending if you can do this. https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/Introduction/Introduction.html
+Perform code optimizations to achieve balance of loading CPU & GPU. You should clearly know which part of rendering must be done by GPU, and which one — by CPU for keeping balance.
+Write specific code for specific cell types.
+Perform rounding of all pixel-relating data: point coordinates, heights or widths of UIViews and many others. https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIView_Class/
+Track your graphical resources: images must be pixel-perfect, else when they will be rendered on Retina displays, it will be doing with unnecessary antialiasing.
+Load images in background.
+Process image like clipToBound, corner radius etc and then assign image.
+Move operation in background thread and refresh in main thread.
+Last resort is setting up your CALayers for asynchronous displaying mode (even if they are about simple text or images) — this will help you to increase FPS. https://developer.apple.com/library/mac/documentation/GraphicsImaging/Reference/CALayer_class/
+For more detail, check this out!
+
+
+
+
+Прокрутку в табличных представлениях можно сделать эффективной, выполнив следующие действия:
+
+Повторное использование экземпляров ячеек: для определенного типа ячейки у вас должен быть только один экземпляр, не более.
+Не привязывайте данные к cellForRowAtIndexPath: методу, потому что в это время ячейка еще не отображается. Вместо этого используйте TableView:willDisplayCell:forRowAtIndexPath: метод в делегате UITableView.
+Уменьшите области, в которых iOS выполняет бесполезное смешивание: не используйте прозрачный фон, проверьте это с помощью iOS Simulator или Instruments; градиент будет получаться лучше без смешивания, если вы сможете это сделать.
+Выполните оптимизацию кода для достижения баланса загрузки CPU и GPU. Вы должны четко знать, какая часть рендеринга должна выполняться графическим процессором, а какая — центральным процессором для поддержания баланса.
+Напишите конкретный код для определенных типов ячеек.
+Выполните округление всех данных, относящихся к пикселям: координат точек, высоты или ширины UIViews и многих других.
+Следите за своими графическими ресурсами: изображения должны быть идеальными по пикселям, иначе, когда они будут отображаться на дисплеях Retina, это будет происходить с ненужным сглаживанием.
+Загружайте изображения в фоновом режиме.
+Обработайте изображение, например clipToBound, радиус угла и т.д., А затем назначьте изображение.
+Переместите операцию в фоновый поток и обновите в основном потоке.
+Последнее средство — настроить ваши CALayers на асинхронный режим отображения (даже если речь идет о простом тексте или изображениях) - это поможет вам увеличить частоту кадров.
+Для получения более подробной информации ознакомьтесь с этим!
