@@ -9,3 +9,15 @@ Improved performance: Immutable objects can be optimized by the compiler because
 Simplicity: Immutable objects can make your code simpler because you do not need to worry about the state of an object changing unexpectedly. This makes it easier to understand and maintain your code.
 Better memory management: Immutable objects do not require manual memory management, as they are automatically managed by the Swift runtime. This reduces the risk of memory leaks or other memory-related issues.
 Overall, immutability provides a number of benefits in Swift, including predictability, thread safety, improved performance, simplicity, and better memory management. By using immutable objects, you can make your code more robust, maintainable, and scalable, and you can reduce the risk of bugs and other issues.
+
+
+
+
+Неизменяемость важна в Swift, поскольку она обеспечивает ряд преимуществ, в том числе:
+
+Предсказуемость: Неизменяемые объекты предсказуемы, потому что их состояние не может измениться. Это означает, что как только вы создали неизменяемый объект, вы можете быть уверены, что его состояние останется неизменным, что облегчает анализ вашего кода.
+Потокобезопасность: Неизменяемые объекты по своей сути потокобезопасны, поскольку они не могут быть изменены. Это означает, что они могут быть безопасно разделены между несколькими потоками без риска возникновения условий гонки или повреждения данных.
+Улучшенная производительность: Неизменяемые объекты могут быть оптимизированы компилятором, поскольку их состояние не может измениться. Это может привести к повышению производительности, особенно в случаях, когда один и тот же объект часто используется в разных частях кода.
+Простота: Неизменяемые объекты могут упростить ваш код, потому что вам не нужно беспокоиться о неожиданном изменении состояния объекта. Это облегчает понимание и поддержку вашего кода.
+Улучшенное управление памятью: Неизменяемые объекты не требуют ручного управления памятью, поскольку они автоматически управляются средой выполнения Swift. Это снижает риск утечек памяти или других проблем, связанных с памятью.
+В целом, неизменяемость обеспечивает ряд преимуществ в Swift, включая предсказуемость, потокобезопасность, повышенную производительность, простоту и лучшее управление памятью. Используя неизменяемые объекты, вы можете сделать свой код более надежным, ремонтопригодным и масштабируемым, а также снизить риск ошибок и других проблем.
