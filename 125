@@ -1,0 +1,34 @@
+What is ideal Core data Stack ?
+
+Ideal Core Data Stack:
+
+
+Core Data Stack
+The managed object context linked to the persistent store coordinator isn’t associated with the main thread. Instead, it lives and operates on a background thread. When the private managed object context saves its changes, the write operation is performed on that background thread.
+
+The private managed object context has a child managed object context, which serves as the main managed object context of the application. The concept of parent and child managed object contexts is key in this scenario.
+
+In most scenarios, a managed object context is associated with a persistent store coordinator. When such a managed object context saves its changes, it pushes them to the persistent store coordinator which further pushes the changes to the persistent store, a SQLite database for example.
+
+A child managed object context doesn’t have a reference to a persistent store coordinator. Instead, it keeps a reference to another managed object context, a parent managed object context. When a child managed object context saves its changes, it pushes them to the parent managed object context. In other words, when a child managed object context saves its changes, the persistent store coordinator is unaware of the save operation. It is only when the parent managed object context performs a save operation that the changes are pushed to the persistent store coordinator and subsequently to the persistent store.
+
+Because no write operations are performed when a child managed object context saves its changes, the thread on which the operation is performed isn’t blocked by a write operation. That is why the main managed object context of the application is the child managed object context of a managed object context that operates on a background thread.
+
+
+
+
+
+
+Идеальный базовый стек данных:
+
+
+Основной стек данных
+Контекст управляемого объекта, связанный с координатором постоянного хранилища, не связан с основным потоком. Вместо этого он живет и работает в фоновом потоке. Когда контекст частного управляемого объекта сохраняет свои изменения, операция записи выполняется в этом фоновом потоке.
+
+Контекст частного управляемого объекта имеет дочерний контекст управляемого объекта, который служит основным контекстом управляемого объекта приложения. Концепция контекстов родительского и дочернего управляемых объектов является ключевой в этом сценарии.
+
+В большинстве сценариев контекст управляемого объекта связан с координатором постоянного хранилища. Когда такой контекст управляемого объекта сохраняет свои изменения, он отправляет их координатору постоянного хранилища, который далее отправляет изменения в постоянное хранилище, например, в базу данных SQLite.
+
+Контекст дочернего управляемого объекта не имеет ссылки на постоянного координатора хранилища. Вместо этого он сохраняет ссылку на другой контекст управляемого объекта, родительский контекст управляемого объекта. Когда контекст дочернего управляемого объекта сохраняет свои изменения, он переносит их в контекст родительского управляемого объекта. Другими словами, когда дочерний контекст управляемого объекта сохраняет свои изменения, координатор постоянного хранилища не знает об операции сохранения. Только когда контекст родительского управляемого объекта выполняет операцию сохранения, изменения передаются координатору постоянного хранилища, а затем в постоянное хранилище.
+
+Поскольку никакие операции записи не выполняются, когда дочерний контекст управляемого объекта сохраняет свои изменения, поток, в котором выполняется операция, не блокируется операцией записи. Вот почему основной контекст управляемого объекта приложения является дочерним контекстом управляемого объекта контекста управляемого объекта, который работает в фоновом потоке.
