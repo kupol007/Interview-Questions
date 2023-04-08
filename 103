@@ -1,0 +1,5 @@
+How many Managed Object Model, a Persistent Store Coordinator can have?
+
+We can have only one Persistent Store Coordinator for each model.
+
+У нас может быть только один постоянный координатор магазина для каждой модели.
