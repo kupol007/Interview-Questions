@@ -1,0 +1,5 @@
+How to Fetch Distinct Values ?
+
+Sometimes you don’t want to fetch actual managed objects; instead, you just want to retrieve — for example — the largest or smallest value of a particular attribute, or distinct values for a given attribute. On iOS, you can use NSExpressionDescription objects to specify a function for a fetch request, and setReturnsDistinctResults: to return unique values.
+
+Иногда вы не хотите извлекать фактические управляемые объекты; вместо этого вы просто хотите извлечь, например, наибольшее или наименьшее значение определенного атрибута или различные значения для данного атрибута. В iOS вы можете использовать объекты NSExpressionDescription для указания функции для запроса выборки и setReturnsDistinctResults: для возврата уникальных значений.
