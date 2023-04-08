@@ -7,3 +7,14 @@ Global State: Singletons can create global state in your application, which can 
 Multithreading: Singletons can create synchronization problems in a multithreaded environment. If multiple threads attempt to access or modify a singleton at the same time, it can lead to race conditions and other synchronization issues that are difficult to diagnose and fix.
 Testability: Singletons can make your code harder to test because they cannot be easily replaced with mock objects for testing purposes. When using singletons, it can be challenging to isolate the behavior of your code and write meaningful unit tests.
 Coupling: Singletons can create tight coupling between different parts of your application, making it difficult to make changes or introduce new functionality. If a singleton is used throughout your codebase, any changes to the singleton can have far-reaching consequences, making it difficult to maintain and evolve your code over time.
+
+
+
+
+Хотя синглтоны могут быть полезны в некоторых случаях, они также могут быть плохой идеей в определенных ситуациях в Swift. Вот несколько примеров того, где синглтоны могут быть не лучшим решением:
+
+Внедрение зависимостей: Синглтоны могут затруднить выполнение внедрения зависимостей, что является важным методом для написания тестируемого и поддерживаемого кода. Создавая singleton, вы создаете глобальный экземпляр, к которому можно получить доступ из любой точки вашего приложения, что затрудняет замену его на макет объекта в целях тестирования.
+Глобальное состояние: Синглтоны могут создавать глобальное состояние в вашем приложении, что может затруднить рассуждения о поведении вашего кода. Глобальное состояние может привести к неожиданным взаимодействиям между различными частями вашего приложения, что затруднит отслеживание ошибок и диагностику неполадок.
+Многопоточность: Синглтоны могут создавать проблемы с синхронизацией в многопоточной среде. Если несколько потоков одновременно пытаются получить доступ к синглету или изменить его, это может привести к условиям гонки и другим проблемам синхронизации, которые трудно диагностировать и устранить.
+Тестируемость: Синглтоны могут усложнить тестирование вашего кода, поскольку их нельзя легко заменить макетными объектами для целей тестирования. При использовании singletons может быть сложно изолировать поведение вашего кода и написать значимые модульные тесты.
+Связь: Синглтоны могут создавать тесную связь между различными частями вашего приложения, затрудняя внесение изменений или внедрение новой функциональности. Если синглтон используется во всей вашей кодовой базе, любые изменения в синглтоне могут иметь далеко идущие последствия, затрудняя поддержку и развитие вашего кода с течением времени.
