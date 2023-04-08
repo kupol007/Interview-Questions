@@ -10,8 +10,23 @@ There are several ways to implement dependency injection, such as constructor in
 
 In Swift, there are three common types of dependency injection:
 
+Внедрение зависимостей помогает управлять зависимостями между различными компонентами или модулями приложения.
+
+Проще говоря, это способ предоставления объекту объектов, необходимых ему для выполнения своих задач. Вместо того, чтобы объект создавал свои собственные зависимости, внедрение зависимостей позволяет “внедрять” зависимости в объект извне. Таким образом, объект не несет ответственности за создание своих собственных зависимостей, и легче изменять или заменять эти зависимости, не затрагивая сам объект.
+
+Например, представьте, что у вас есть класс, которому нужно отправлять электронные письма. Вместо создания экземпляра класса email sender внутри класса отправки электронной почты вы могли бы передать экземпляр класса email sender в класс отправки электронной почты извне. Это делает класс отправки электронной почты более гибким и простым в тестировании, поскольку вы можете легко заменить класс отправителя электронной почты макетным объектом для тестирования.
+
+Существует несколько способов реализации внедрения зависимостей, таких как внедрение конструктора, внедрение установщика или внедрение интерфейса. Выбор подхода зависит от конкретных требований и архитектуры приложения.
+
+В Swift существует три распространенных типа внедрения зависимостей:
+
+
+
 Constructor injection: Dependencies are provided to an object through its constructor.
 For example, consider the following code:
+Внедрение конструктора: Зависимости предоставляются объекту через его конструктор.
+Например, рассмотрим следующий код:
+
 
 class UserService {
   let networkService: NetworkService
@@ -27,8 +42,10 @@ class UserService {
   }
 }
 Here, the UserService depends on a NetworkService to make network requests. The dependency is provided through the init method of the UserService class. This way, the UserService does not have to create a new instance of the NetworkService class itself.
+Здесь пользовательская служба зависит от сетевой службы для выполнения сетевых запросов. Зависимость предоставляется с помощью метода init класса UserService. Таким образом, пользовательской службе не нужно создавать новый экземпляр самого класса сетевой службы.
 
 2. Setter injection: Dependencies are provided to an object through a setter method.
+2. Внедрение установщика: зависимости предоставляются объекту с помощью метода setter.
 
 class UserProfileViewController: UIViewController {
   var userService: UserService!
@@ -39,9 +56,10 @@ class UserProfileViewController: UIViewController {
   }
 }
 Here, the UserProfileViewController depends on a UserService to fetch user data. The dependency is provided through a setter method called userService, which is set in the viewDidLoad method of the view controller.
+Здесь UserProfileViewController зависит от пользовательского сервиса для извлечения пользовательских данных. Зависимость предоставляется с помощью метода установки, называемого UserService, который устанавливается в методе viewDidLoad контроллера представления.
 
 3. Interface injection: Dependencies are provided to an object through an interface or protocol.
-
+3. Внедрение интерфейса: зависимости предоставляются объекту через интерфейс или протокол.
 protocol UserManager {
   func getUserProfile(completion: (UserProfile) -> Void)
 }
@@ -61,3 +79,4 @@ class UserProfileViewController: UIViewController {
   }
 }
 Here, the UserProfileViewController depends on a UserManager to fetch user data. The UserManager protocol defines the interface that the dependency must conform to. This way, the UserProfileViewController can be decoupled from the concrete implementation of the UserManager and can be easily tested with a mock implementation of the protocol.
+Здесь UserProfileViewController зависит от менеджера пользователей для извлечения пользовательских данных. Протокол User Manager определяет интерфейс, которому должна соответствовать зависимость. Таким образом, UserProfileViewController может быть отделен от конкретной реализации User Manager и может быть легко протестирован с помощью макетной реализации протокола.
