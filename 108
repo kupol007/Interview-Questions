@@ -1,0 +1,5 @@
+How to pass Manage Object between Managed Object Context on different queue?
+
+We cannot pass them, since Managed Objects instances are not thread safe and are not intended to be passed between queues. Doing so can result in corruption of the data and termination of the application. When it is necessary to hand off a managed object reference from one queue to another, it must be done through NSManagedObjectID instances. You retrieve the managed object ID of a managed object by calling the objectID method on the NSManagedObject instance.
+
+Мы не можем передать их, поскольку экземпляры управляемых объектов не являются потокобезопасными и не предназначены для передачи между очередями. Это может привести к повреждению данных и завершению работы приложения. Когда необходимо передать ссылку на управляемый объект из одной очереди в другую, это должно быть сделано через экземпляры NSManagedObjectID. Идентификатор управляемого объекта извлекается путем вызова метода ObjectId в экземпляре NSManagedObject.
