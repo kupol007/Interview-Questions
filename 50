@@ -1,0 +1,3 @@
+Explain what is defer ?
+
+defer keyword which provides a block of code that will be executed in the case when execution is leaving the current scope. Nice article by NSHipster.
