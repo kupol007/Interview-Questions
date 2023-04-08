@@ -1,0 +1,10 @@
+Explain NSFetchedResultsController ?
+
+NSFetchedResultsController is a controller, but it’s not a view controller. It has no user interface. Its purpose is to make developers’ lives easier by abstracting away much of the code needed to synchronize a table view with a data source backed by Core Data.
+
+Set up an NSFetchedResultsController correctly, and your table will mimic its data source without you have to write more than a few lines of code.
+
+
+NSFetchedResultsController - это контроллер, но это не контроллер представления. У него нет пользовательского интерфейса. Его цель - облегчить жизнь разработчикам за счет абстрагирования большей части кода, необходимого для синхронизации табличного представления с источником данных, поддерживаемым Core Data.
+
+Правильно настройте NSFetchedResultsController, и ваша таблица будет имитировать свой источник данных, и вам не придется писать больше нескольких строк кода.
