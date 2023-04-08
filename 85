@@ -1,0 +1,5 @@
+Explain Update Cycle ?
+
+When an iOS app launches, UIApplication in iOS starts the main run loop for an app, which runs on the main thread. The main run loop processes events (such as user touches) and handles updates to view-based interfaces. As events occur, such as touch, location updates, motion, and multimedia control, the run loop finds the appropriate handler for the events, calling appropriate methods, which call other methods, and so on. At some moment in time, all events will have been handled and control will return to the run loop. Let’s label this point where control is returned to the run loop as the update cycle.
+
+While the events are being processed, and some changes are requested to the view, these changes are not updated immediately. Instead the system wait for the existing process to finish and when the next redraw cycle is going to happen. There is a periodic interval between the event processing and UI layout update handling.
