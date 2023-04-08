@@ -1,0 +1,37 @@
+What are phantom types and when would you use them?
+
+Phantom types are a type of type-level programming technique in which types are used to encode additional information at compile time, without actually requiring any additional runtime overhead. In Swift, phantom types are often implemented using empty enums or structs, which are used solely to provide type information.
+
+Phantom types can be used to enforce additional constraints or invariants on the behavior of your code, without requiring additional runtime checks or validation. Here are a few examples of where phantom types might be used:
+
+Units of Measure: Phantom types can be used to encode information about the units of measure of values in your code. For example, you might define a Length phantom type that is associated with a particular unit of measure, such as meters or feet. By using this phantom type in your code, you can ensure that all calculations involving length values are performed with consistent units of measure, without requiring any additional runtime checks.
+State Machines: Phantom types can be used to encode information about the state of a system or process. For example, you might define a StateMachine phantom type that is associated with a particular state machine, and use this phantom type to enforce transitions between states. By using this phantom type in your code, you can ensure that all state transitions are valid, without requiring any additional runtime checks.
+Type-level Constraints: Phantom types can be used to enforce type-level constraints in your code. For example, you might define a NonEmpty phantom type that can only be used with collections that are guaranteed to have at least one element. By using this phantom type in your code, you can ensure that all operations on the collection are valid and avoid the need for additional runtime checks.
+Phantom types can be a powerful tool for enforcing additional constraints and invariants in your code, without requiring additional runtime checks or validation. However, they can also be complex to use and maintain, so it’s important to carefully consider whether phantom types are the best solution for your particular use case.
+
+In Swift, you can implement phantom types using empty enums or structs. Here’s an example:
+
+enum LengthUnit {}
+struct Length<Unit: Empty> {
+    let value: Double
+}
+In this example, we define an empty enum LengthUnit, which will be used as a phantom type to encode information about the units of measure for a length value. We also define a Length struct, which takes a type parameter Unit that is constrained to be an empty type. This Unit type parameter is used to associate the Length struct with a particular unit of measure, and the value property stores the actual length value as a Double.
+
+We can use this Length struct to define length values with different units of measure, like this
+
+let lengthInMeters = Length<LengthUnit>(value: 10.0)
+let lengthInFeet = Length<LengthUnit>(value: 32.8)
+In this example, we create two length values, one in meters and one in feet, by using the Length struct with different type parameters.
+
+We can also define functions that operate on Length values, while enforcing type-level constraints, like this:
+
+func addLengths<Unit: Empty>(_ a: Length<Unit>, _ b: Length<Unit>) -> Length<Unit> {
+    return Length<Unit>(value: a.value + b.value)
+}
+
+let result = addLengths(lengthInMeters, lengthInFeet) // Compile-time error: Cannot convert value of type 'Length<LengthUnit>' to expected argument type 'Length<Empty>'
+In this example, we define a function addLengths that takes two Length values with the same phantom type and returns a new Length value with the same phantom type. This function enforces the type-level constraint that the two length values must have the same units of measure.
+
+If we attempt to call this function with length values with different phantom types, we’ll get a compile-time error, indicating that the types are not compatible.
+
+This is just one example of how phantom types can be implemented in Swift. The exact implementation will depend on the particular use case and constraints of your code.
