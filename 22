@@ -1,0 +1,63 @@
+How would you explain dependency injection to a junior developer?
+
+Dependency injection helps manage dependencies between different components or modules of an application.
+
+In simpler terms, it’s a way of providing an object with the objects it needs to perform its tasks. Instead of an object creating its own dependencies, dependency injection allows the dependencies to be “injected” into the object from the outside. This way, the object is not responsible for creating its own dependencies, and it is easier to modify or replace those dependencies without affecting the object itself.
+
+For example, imagine you have a class that needs to send emails. Instead of creating an instance of the email sender class within the email-sending class, you could pass an instance of the email sender class into the email-sending class from outside. This makes the email-sending class more flexible and easier to test, as you can easily replace the email sender class with a mock object for testing.
+
+There are several ways to implement dependency injection, such as constructor injection, setter injection, or interface injection. The choice of approach depends on the specific requirements and architecture of the application.
+
+In Swift, there are three common types of dependency injection:
+
+Constructor injection: Dependencies are provided to an object through its constructor.
+For example, consider the following code:
+
+class UserService {
+  let networkService: NetworkService
+
+  init(networkService: NetworkService) {
+    self.networkService = networkService
+  }
+
+  func login(username: String, password: String) {
+    networkService.request(url: "login", method: .post, parameters: ["username": username, "password": password]) { response in
+      // handle response
+    }
+  }
+}
+Here, the UserService depends on a NetworkService to make network requests. The dependency is provided through the init method of the UserService class. This way, the UserService does not have to create a new instance of the NetworkService class itself.
+
+2. Setter injection: Dependencies are provided to an object through a setter method.
+
+class UserProfileViewController: UIViewController {
+  var userService: UserService!
+
+  func viewDidLoad() {
+    super.viewDidLoad()
+    userService = UserService(networkService: NetworkService())
+  }
+}
+Here, the UserProfileViewController depends on a UserService to fetch user data. The dependency is provided through a setter method called userService, which is set in the viewDidLoad method of the view controller.
+
+3. Interface injection: Dependencies are provided to an object through an interface or protocol.
+
+protocol UserManager {
+  func getUserProfile(completion: (UserProfile) -> Void)
+}
+
+class UserProfileViewController: UIViewController {
+  var userManager: UserManager!
+
+  func viewDidLoad() {
+    super.viewDidLoad()
+    userManager = UserService(networkService: NetworkService())
+  }
+
+  func showUserProfile() {
+    userManager.getUserProfile { userProfile in
+      // update UI with user profile
+    }
+  }
+}
+Here, the UserProfileViewController depends on a UserManager to fetch user data. The UserManager protocol defines the interface that the dependency must conform to. This way, the UserProfileViewController can be decoupled from the concrete implementation of the UserManager and can be easily tested with a mock implementation of the protocol.
