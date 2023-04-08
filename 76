@@ -1,0 +1,3 @@
+Explain Can we have multiple UIWindows in iOS application ?
+
+Yes, in scenarios like covering system UIAlertViews, default keyboard or covering whole app before it is placed in background to avoid screenshot. There are 3 default window enum levels defined such as: UIWindowLevelNormal, UIWindowLevelStatusBar and UIWindowLevelAlert. Usage — create a new UIWindow and set its makeKeyAndVisible property.
