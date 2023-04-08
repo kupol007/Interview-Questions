@@ -1,0 +1,11 @@
+Explain setNeedslayout vs layoutIfNeeded vs layoutSubviews ?
+
+The method setNeedsLayout for a UIView tells the system that you want it to layout and redraw that view and all of its subviews, when it is time for the update cycle. This is an asynchronous activity, because the method completes and returns immediately, but it isn’t until some later time that the layout and redraw actually happens, and you don’t know when that update cycle will be. Call this method on your application’s main thread. Use it to invalidate the layout of multiple views before any of those views are updated. This behavior allows you to consolidate all of your layout updates to one update cycle, which is usually better for performance. Apple Docs https://developer.apple.com/documentation/uikit/uiview/1622601-setneedslayout
+
+layoutIfNeeded is a synchronous call that tells the system you want a layout and redraw of a view and its subviews, and you want it done immediately without waiting for the update cycle. When the call to this method is complete, the layout has already been adjusted and drawn based on all changes that had been noted prior to the method call. Apple Docs https://developer.apple.com/documentation/uikit/uiview/1622507-layoutifneeded
+
+So, layoutIfNeeded says update immediately please, whereas setNeedsLayout says please update but you can wait until the next update cycle.
+
+layoutSubviews: The default implementation uses any constraints you have set to determine the size and position of any subviews. Subclasses can override this method as needed to perform more precise layout of their subviews. You should override this method only if the autoresizing and constraint-based behaviors of the subviews do not offer the behavior you want. You can use your implementation to set the frame rectangles of your subviews directly. You should not call this method directly. Apple Docs. https://developer.apple.com/documentation/uikit/uiview/1622482-layoutsubviews
+
+Great Example by iOS Insight http://www.iosinsight.com/setneedslayout-vs-layoutifneeded-explained/
