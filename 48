@@ -1,0 +1,7 @@
+What is Downcasting ?
+
+When we’re casting an object to another type in Objective-C, it’s pretty simple since there’s only one way to do it. In Swift, though, there are two ways to cast — one that’s safe and one that’s not .
+
+as used for upcasting and type casting to bridged type
+as? used for safe casting, return nil if failed
+as! used to force casting, crash if failed. should only be used when we know the downcast will succeed.
