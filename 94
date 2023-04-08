@@ -1,0 +1,12 @@
+Explain push and modal segue ?
+
+To create push (or Show) segue, the parent view controller needs to be embedded in navigation controller. The child view controller will inherit this navigation bar on top and a back button that gets you back to the parent view controller. It will be added on top of the navigation stack. You can also swipe right to pop the child view controller. The animation for push segue is like sliding pages horizontally. Child View Controller will loose all these feature if navigation controller is not embeded in parent.
+
+A modal segue (i.e. present modally), is presenting over the current view controller. The child view controller will not inherit navigation view controller so the navigation bar will be lost if you present modal segue. Animation for modal segue is that the child view controller will comes up from the bottom of the page.
+
+For more detail check this Stackoverflow answer. Apple Docs.
+
+
+Чтобы создать push (или Show) segue, родительский контроллер представления должен быть встроен в навигационный контроллер. Дочерний контроллер просмотра унаследует эту панель навигации сверху и кнопку "Назад", которая возвращает вас к родительскому контроллеру просмотра. Он будет добавлен поверх стека навигации. Вы также можете провести пальцем вправо, чтобы открыть дочерний контроллер просмотра. Анимация для push-перехода похожа на скольжение страниц по горизонтали. Дочерний контроллер просмотра потеряет все эти функции, если навигационный контроллер не встроен в родительский.
+
+Модальный переход (т.е. присутствующий модально) представляется поверх текущего контроллера представления. Дочерний контроллер представления не унаследует контроллер представления навигации, поэтому панель навигации будет потеряна, если вы представите модальный переход. Анимация для модального перехода заключается в том, что дочерний контроллер просмотра будет отображаться в нижней части страницы.
