@@ -1,0 +1,62 @@
+What is lazy loading, how does this relate to core data ? Situations when this can be handy ?
+
+When you execute a fetch, Core Data fetches only instances of the entity you specify. In some situations (see Faulting Limits the Size of the Object Graph), the destination of a relationship is represented by a fault. Core Data automatically resolves (fires) the fault when you access data in the fault. This lazy loading of the related objects is much better for memory use, and much faster for fetching objects related to rarely used (or very large) objects. It can also, however, lead to a situation where Core Data executes separate fetch requests for a number of individual objects, which incurs a comparatively high overhead. For example, consider this model:
+
+
+You might fetch a number of Employees and ask each in turn for their Department’s name, as shown in the following code fragment.
+
+let employeesFetch = NSFetchRequest<EmployeeMO>(entityName: “Employee”)
+do {
+let fetchedEmployees = try moc.executeFetchRequest(employeeFetch)
+for employee in fetchedEmployees {
+print(“\(employee.name) -> \(employee.department!.name)”)
+}
+} catch {
+fatalError(“Failed to fetch employees: \(error)”)
+}
+This code might lead to the following behavior:
+
+Jack -> Sales [fault fires]
+Jill -> Marketing [fault fires]
+Benjy -> Sales
+Gillian -> Sales
+Hector -> Engineering [fault fires]
+Michelle -> Marketing
+Here, there are four round trips to the persistent store (one for the original fetch of Employees and three for individual Departments). These trips represent a considerable overhead on top of the minimum two trips to the persistent store.
+
+There are two techniques you can use to mitigate this effect — batch faulting and prefetching.
+
+Source: Apple Docs.
+
+
+
+
+
+Когда вы выполняете выборку, Core Data извлекает только экземпляры указанной вами сущности. В некоторых ситуациях (см. раздел "Ошибка ограничивает размер графа объектов") назначение связи представлено ошибкой. Core Data автоматически устраняет (запускает) неисправность, когда вы обращаетесь к данным в неисправности. Такая отложенная загрузка связанных объектов намного лучше использует память и намного быстрее извлекает объекты, относящиеся к редко используемым (или очень большим) объектам. Однако это также может привести к ситуации, когда Core Data выполняет отдельные запросы на выборку для ряда отдельных объектов, что влечет за собой сравнительно высокие накладные расходы. Например, рассмотрим эту модель:
+
+
+Вы можете выбрать несколько сотрудников и спросить у каждого по очереди название их отдела, как показано в следующем фрагменте кода.
+
+пусть employeesFetch = NSFetchRequest<EmployeeMO>(EntityName: “Сотрудник”)
+do {
+let fetchedEmployees = попробуйте moc.executeFetchRequest(employeeFetch)
+для employee в fetchedEmployees {
+print(“\(employee.name ) -> \(сотрудник.отдел!.название)”)
+}
+} поймать {
+FatalError(“Не удалось получить сотрудников: \(ошибка)”)
+}
+Этот код может привести к следующему поведению:
+
+Разъем -> Продажи [срабатывает ошибка]
+Джилл -> Маркетинг [срабатывает ошибка]
+Бенджи -> Продажи
+Джиллиан -> Продажи
+Гектор -> Инженерия [срабатывание по неисправности]
+Мишель -> Маркетинг
+Здесь предусмотрено четыре поездки в постоянное хранилище (одна для первоначальной выборки сотрудников и три для отдельных отделов). Эти поездки представляют собой значительные накладные расходы в дополнение к минимальным двум поездкам в постоянное хранилище.
+
+Есть два метода, которые вы можете использовать для смягчения этого эффекта — пакетное устранение неполадок и предварительная выборка.
+
+Источник: Apple Docs.
+
