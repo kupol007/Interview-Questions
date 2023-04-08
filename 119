@@ -1,0 +1,13 @@
+What is SQLite limits ?
+
+We need to define the relations between the tables. Define the schema of all the tables.
+We have to manually write queries to fetch data.
+We need to query results and then map those to models.
+Queries are very fast.
+
+
+
+Нам нужно определить отношения между таблицами. Определите схему всех таблиц.
+Нам приходится вручную писать запросы для извлечения данных.
+Нам нужно запросить результаты, а затем сопоставить их с моделями.
+Запросы выполняются очень быстро.
