@@ -1,0 +1,7 @@
+Explain Computed Property ?
+
+Classes, structures, and enumerations can define computed properties, which do not actually store a value. Instead, they provide a getter and an optional setter to retrieve and set other properties and values indirectly.
+
+A computed property with a getter but no setter is known as a read-only computed property. It always returns a value, and cannot be set to a different value.
+
+NOTE: You must declare computed properties — including read-only computed properties — as variable properties with the var keyword, because their value is not fixed. The let keyword is only used for constant properties, to indicate that their values cannot be changed once they are set as part of instance initialization.
