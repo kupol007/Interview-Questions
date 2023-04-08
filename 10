@@ -1,0 +1,15 @@
+What’s the importance of key decoding strategies when using Codable?
+
+
+Key decoding strategies are an important aspect of using the Codable protocol in Swift, as they determine how the encoding keys in a data format, such as JSON or property lists, map to properties in your custom data types.
+
+The following are the key decoding strategies in Swift:
+
+convertFromSnakeCase: This strategy is used to convert encoding keys in snake_case to properties in your data type in camelCase.
+custom: This strategy allows you to specify a custom function that maps encoding keys to properties in your data type.
+useDefaultKeys: This strategy uses the default behavior, which maps encoding keys directly to properties in your data type.
+useSnakeCase: This strategy maps encoding keys in snake_case directly to properties in your data type, without conversion to camelCase.
+Choosing the right key decoding strategy depends on the naming conventions used in your data format, and the naming conventions used in your custom data types. By using the appropriate key decoding strategy, you can ensure that the encoding keys in your data format map correctly to the properties in your custom data types, and that the decoding process can succeed even if the data format changes in the future.
+
+Using key decoding strategies is an important aspect of making your code more flexible and future-proof, and it helps ensure that your custom data types can be easily adapted to changes in the underlying data format.
+
