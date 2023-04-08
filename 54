@@ -1,0 +1,8 @@
+Please explain Swift’s pattern matching techniques?
+
+Tuple patterns are used to match values of corresponding tuple types.
+Type-casting patterns allow you to cast or match types.
+Wildcard patterns match and ignore any kind and type of value.
+Optional patterns are used to match optional values.
+Enumeration case patterns match cases of existing enumeration types.
+Expression patterns allow you to compare a given value against a given expression.
