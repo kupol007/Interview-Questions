@@ -1,0 +1,6 @@
+Explain [weak self] and [unowned self] ?
+
+unowned does the same as weak with one exception: The variable will not become nil and therefore the variable must not be an optional.
+
+By declaring it [weak self] you get to handle the case that it might be nil inside the closure at some point and therefore the variable must be an optional. A case for using [weak self] in an asynchronous network request, is in a view controller where that request is used to populate the view.
+
