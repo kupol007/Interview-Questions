@@ -1,0 +1,10 @@
+Designated initialisers VS Convenience initialisers?
+
+All of a class’s stored properties — including any properties the class inherits from its superclass — must be assigned an initial value during initialization.
+
+Designated initializers are the primary initializers for a class. It initializes all properties of the class and calls an appropriate superclass initializer to continue the initialization process up the superclass chain. Every class must have at least one designated initializer. Designated initializers are “funnel” points through which initialization takes place.
+
+Convenience initializers are secondary, supporting initializers for a class. You can define a convenience initializer to call a designated initializer from the same class as the convenience initializer with some of the designated initializer’s parameters set to default values. You can also define a convenience initializer to create an instance of that class for a specific use case or input value type. It is non mandatory. Create convenience initializers whenever a shortcut to a common initialization pattern will save time or make initialization of the class clearer in intent.
+
+Convenience initializers are written in the same style, but with the convenience modifier placed before the init keyword, separated by a space
+
