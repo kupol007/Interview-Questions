@@ -1,0 +1,6 @@
+Explain Auto resizing mask ?
+
+An integer bit mask that determines how the receiver resizes itself when its superview’s bounds change.When a view’s bounds change, that view automatically resizes its subviews according to each subview’s autoresizing mask. You specify the value of this mask by combining the constants described in UIViewAutoresizing using the C bitwise OR operator. Combining these constants lets you specify which dimensions of the view should grow or shrink relative to the superview. The default value of this property is none, which indicates that the view should not be resized at all. Apple Docs
+
+Целочисленная битовая маска, которая определяет, как изменяется размер приемника при изменении границ его супервизора.Когда границы представления изменяются, это представление автоматически изменяет размер своих подвидов в соответствии с маской авторазработки каждого подвида. Вы указываете значение этой маски, комбинируя константы, описанные в UIViewAutoresizing, с помощью побитового оператора C ИЛИ. Объединение этих констант позволяет указать, какие размеры вида должны увеличиваться или уменьшаться относительно супервизора. Значение этого свойства по умолчанию равно none, что указывает на то, что размер представления вообще не следует изменять. Документы Apple Docs
+https://developer.apple.com/documentation/uikit/uiview/1622559-autoresizingmask
