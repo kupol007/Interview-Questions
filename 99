@@ -1,0 +1,10 @@
+Can Persistent Store Coordinator have multiple Persistent Store?
+
+A persistent store coordinator associates persistent object stores and a managed object model, and presents a facade to managed object contexts such that a group of persistent stores appears as a single aggregate store. It has a reference to a managed object model that describes the entities in the store or stores it manages.
+
+In many applications you just have a single store, but in complex applications there may be several, each potentially containing different entities.
+
+
+Координатор постоянного хранилища связывает хранилища постоянных объектов и управляемую объектную модель и представляет фасад для контекстов управляемых объектов таким образом, что группа постоянных хранилищ отображается как единое хранилище aggregate. Он содержит ссылку на управляемую объектную модель, которая описывает объекты в хранилище или хранилищах, которыми он управляет.
+
+Во многих приложениях у вас есть только одно хранилище, но в сложных приложениях их может быть несколько, каждое из которых потенциально содержит разные объекты.
