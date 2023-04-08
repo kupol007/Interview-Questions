@@ -1,0 +1,6 @@
+Closures VS blocks
+
+“Swift closures and Objective-C blocks are compatible, so you can pass Swift closures to Objective-C methods that expect blocks. Swift closures and functions have the same type, so you can even pass the name of a Swift function.
+
+Closures have similar capture semantics as blocks but differ in one key way: Variables are mutable rather than copied. In other words, the behavior of __block in Objective-C is the default behavior for variables in Swift.”
+
