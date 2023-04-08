@@ -1,0 +1,3 @@
+What are benefits of Guard ?
+
+There are two big benefits to guard. One is avoiding the pyramid of doom, avoids lots of annoying if-let statements nested inside each other, moving further and further to the right. The other benefit is provide an early exit out of the function using break, continue or return.
