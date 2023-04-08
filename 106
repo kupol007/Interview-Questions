@@ -1,0 +1,20 @@
+What are Concurrency type in Core Data?
+
+Two concurrency patterns — NSMainQueueConcurrencyType and NSPrivateQueueConcurrencyType.
+
+NSMainQueueConcurrencyType is specifically for use with your application interface and can only be used on the main queue of an application.
+
+The NSPrivateQueueConcurrencyType configuration creates its own queue upon initialization and can be used only on that queue. Because the queue is private and internal to the NSManagedObjectContext instance, it can only be accessed through the performBlock: and the performBlockAndWait: methods.
+
+When you are using an NSPersistentContainer, the viewContext property is configured as a NSMainQueueConcurrencyType context and the contexts associated with performBackgroundTask: and newBackgroundContext are configured as NSPrivateQueueConcurrencyType.
+
+
+
+Два шаблона параллелизма — NSMainQueueConcurrencyType и NSPrivateQueueConcurrencyType.
+
+NSMainQueueConcurrencyType предназначен специально для использования с интерфейсом вашего приложения и может использоваться только в основной очереди приложения.
+
+Конфигурация NSPrivateQueueConcurrencyType создает свою собственную очередь при инициализации и может использоваться только в этой очереди. Поскольку очередь является частной и внутренней для экземпляра NSManagedObjectContext, доступ к ней возможен только через методы performBlock: и performBlockAndWait:.
+
+Когда вы используете постоянный контейнер, свойство контекста просмотра настраивается как контекст NSMainQueueConcurrencyType, а контексты, связанные с performBackgroundTask: и newBackgroundContext, настраиваются как NSPrivateQueueConcurrencyType.
+
