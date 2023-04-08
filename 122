@@ -1,0 +1,5 @@
+How to do Core Data Migrations?
+
+A persistent store is tied to a particular version of the data model. It keeps a reference to the identifier of the data model. If the data model changes, we need to tell Core Data how to migrate the data of the persistent store to the new data model version.
+
+Постоянное хранилище привязано к определенной версии модели данных. Он сохраняет ссылку на идентификатор модели данных. Если модель данных меняется, нам нужно сообщить Core Data, как перенести данные из постоянного хранилища в новую версию модели данных.
