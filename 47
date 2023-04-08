@@ -1,0 +1,12 @@
+ Explain Identical operator ?
+ 
+ In swift 3 and above
+
+=== (or !==)
+Checks if the values are identical (both point to the same memory address).
+Comparing reference types.
+Like == in Obj-C (pointer equality).
+== (or !=)
+Checks if the values are the same.
+Comparing value types.
+Like isEqual: in Obj-C (However, you can override isEqual in Obj-C).
