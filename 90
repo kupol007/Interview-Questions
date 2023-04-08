@@ -1,0 +1,11 @@
+Explain UIResponder and UIControl ?
+
+Instance of UIResponder—constitute the event-handling backbone of a UIKit app. UIApplication, UIViewController, and all UIView objects inherit from UIResponder. As events occur like touch events, motion events, remote-control events, and press events, UIKit dispatches them to your app’s responder objects for handling. If a given responder does not handle an event, it forwards that event to the next event in the responder chain. Apple Docs.
+
+Controls implement elements such as buttons and sliders,it uses the Target-Action mechanism to report user interactions to your app. Its instance cannot be created directly. A control’s state of UIControlState type determines its appearance and its ability to support user interactions. Apple Docs. https://developer.apple.com/documentation/uikit/uiresponder
+
+
+
+Экземпляр UIResponder — представляет собой основу для обработки событий приложения UIKit. UIApplication, UIViewController и все объекты UIView наследуются от UIResponder. Когда происходят события, такие как события касания, события движения, события дистанционного управления и события нажатия, UIKit отправляет их объектам-ответчикам вашего приложения для обработки. Если данный ответчик не обрабатывает событие, он пересылает это событие следующему событию в цепочке ответчиков. Документы Apple.
+
+Элементы управления реализуют такие элементы, как кнопки и ползунки, они используют механизм целевого действия для сообщения о взаимодействии пользователя с вашим приложением. Его экземпляр не может быть создан напрямую. Состояние элемента управления типа UIControlState определяет его внешний вид и способность поддерживать взаимодействие с пользователем. Документы Apple. https://developer.apple.com/documentation/uikit/uicontrolstate
