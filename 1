@@ -1,0 +1,10 @@
+How would you explain Dynamic Type to a new iOS developer?
+Dynamic Type is a feature in iOS that allows users to adjust the size of text in an app. This feature is particularly useful for users with visual impairments or for those who want to make text larger or smaller for better readability. Dynamic Type is implemented through the use of “Text Styles” and “Font Descriptors” in the iOS SDK.
+
+A Text Style is a predefined set of font attributes, such as font name, size, weight, and style. iOS provides a number of predefined text styles, such as “Headline,” “Body,” “Subhead,” and “Footnote.” Developers can use these text styles in their app to ensure that the text appears consistently and is easily readable.
+
+A Font Descriptor is a configuration object that describes the font attributes to be used in an app. Font Descriptors are used to create UIFont objects, which can then be applied to text in the app. When Dynamic Type is enabled, the font size used by a UIFont object can be adjusted dynamically by the user, allowing them to choose the size that works best for them.
+
+To implement Dynamic Type in an app, a developer would first choose the appropriate Text Style for the text they want to display. They would then create a Font Descriptor using the UIFontDescriptor class, specifying the Text Style and any additional font attributes. Finally, they would create a UIFont object using the Font Descriptor and apply it to the text in their app.
+
+By using Dynamic Type, developers can ensure that their app provides a great reading experience for all users, regardless of their visual needs.
