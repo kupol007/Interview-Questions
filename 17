@@ -11,6 +11,17 @@ Another benefit of using Result is the ability to pass the result of a function 
 
 Let’s see an example of how to use Result with a function that downloads data from a URL and returns either the data or an error:
 
+Тип результата Swift - это перечисление, которое инкапсулирует идею успешной операции и неудачной, обе с соответствующими значениями. Он обычно используется для обработки функций, которые могут возвращать либо успешное значение, либо ошибку.
+
+При работе с асинхронным кодом использование Result особенно полезно. В этом сценарии вы можете захотеть использовать обработчик завершения, который будет вызван после завершения операции, а тип результата - хороший способ инкапсулировать успех или неудачу операции, при этом соответствующее значение передается в качестве аргумента обработчику завершения.
+
+Использование Result особенно ценно при работе с операциями, которые могут завершаться сбоем несколькими способами, где ошибки могут иметь разные типы и передавать различную информацию. Например, при выполнении сетевых запросов с использованием URLSession вы можете использовать Result для инкапсуляции ответа от сервера или сообщения об ошибке, если запрос выполнен с ошибкой. Это позволяет более выразительно обрабатывать ошибки и проще сообщать о сбоях пользователю или другим частям кода.
+
+Еще одним преимуществом использования Result является возможность передавать результат функции в виде значения, которое будет обработано позже. Обернув выходные данные функции в тип результата, вы можете избежать необходимости немедленной обработки ошибок и вместо этого отложить обработку на более позднее время или в другой части кода. Это может сделать код более модульным и понятным для рассуждений.
+
+Давайте посмотрим пример того, как использовать Result с функцией, которая загружает данные с URL-адреса и возвращает либо данные, либо ошибку:
+
+
 enum DownloadError: Error {
     case networkError(Error)
     case invalidResponse
@@ -39,6 +50,12 @@ In this example, the downloadData function takes a URL and a completion handler 
 Inside the downloadData function, we use URLSession to download data from the given URL. If there is an error during the download, we return a failure result with the appropriate error. If the response from the server is not valid, we return a failure result with the invalidResponse error. If the downloaded data is not valid, we return a failure result with the invalidData error. If the download is successful, we return a success result with the downloaded data.
 
 The downloadData function is called like this:
+В этом примере функция загрузки данных принимает URL-адрес и обработчик завершения в качестве параметров. Обработчик завершения принимает результат<Data, DownloadError> в качестве своего аргумента, где Data - это тип загруженных данных, а DownloadError - это перечисление, представляющее различные типы ошибок, которые могут возникнуть во время загрузки.
+
+Внутри функции downloadData мы используем URLSession для загрузки данных с заданного URL. Если во время загрузки возникает ошибка, мы возвращаем результат сбоя с соответствующей ошибкой. Если ответ от сервера недействителен, мы возвращаем результат сбоя с invalidResponseerror. Если загруженные данные недействительны, мы возвращаем результат сбоя с ошибкой недопустимых данных. Если загрузка прошла успешно, мы возвращаем результат успешного выполнения с загруженными данными.
+
+Функция загрузки данных вызывается следующим образом:
+
 
 let url = URL(string: "https://www.example.com/data.json")!
 downloadData(from: url) { result in
@@ -52,3 +69,8 @@ downloadData(from: url) { result in
     }
 }
 The closure passed to the downloadData function handles the result of the download by switching on the Result type. If the download is successful, it prints the downloaded data. If the download fails, it prints the error.
+Закрытие, переданное функции загрузки данных, обрабатывает результат загрузки, переключая тип результата. Если загрузка прошла успешно, он печатает загруженные данные. Если загрузка завершается неудачей, выводится сообщение об ошибке.
+
+
+
+
