@@ -1,8 +1,12 @@
 What does it mean when we say “strings are collections in Swift”?
 
 In Swift, a string is considered to be a collection of characters. This means that a string can be treated as a sequence of individual characters, just like an array. This allows you to perform operations on a string that you would typically perform on an array, such as iterating through the characters, accessing individual characters, and performing transformations.
+В Swift строка считается набором символов. Это означает, что строку можно рассматривать как последовательность отдельных символов, точно так же, как массив. Это позволяет вам выполнять операции со строкой, которые вы обычно выполняете с массивом, такие как перебор символов, доступ к отдельным символам и выполнение преобразований.
+
 
 For example, you can use a for loop to iterate through the characters in a string:
+Например, вы можете использовать цикл for для перебора символов в строке:
+
 
 let name = "John Doe"
 for char in name {
@@ -18,17 +22,20 @@ for char in name {
 // o
 // e
 You can also access individual characters in a string using the subscript syntax:
+Вы также можете получить доступ к отдельным символам в строке, используя синтаксис нижнего индекса:
 
 let name = "John Doe"
 let firstChar = name[name.startIndex]
 print(firstChar)
 // Output: J
 And you can perform transformations on a string, such as converting it to upper-case or lower-case:
+И вы можете выполнять преобразования со строкой, например, преобразовывать ее в верхний или нижний регистр:
 
 let name = "John Doe"
 let upperCaseName = name.uppercased()
 print(upperCaseName)
 // Output: JOHN DOE
 In conclusion, when we say “strings are collections in Swift”, we mean that strings can be treated as collections of characters, and you can perform operations on strings that you would typically perform on arrays. This makes strings a very flexible and powerful data type in Swift, and it provides a convenient way to work with text data.
+В заключение, когда мы говорим “строки - это коллекции в Swift”, мы имеем в виду, что строки можно рассматривать как коллекции символов, и вы можете выполнять со строками операции, которые обычно выполняете с массивами. Это делает strings очень гибким и мощным типом данных в Swift и обеспечивает удобный способ работы с текстовыми данными.
 
 
