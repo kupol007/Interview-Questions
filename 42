@@ -1,0 +1,6 @@
+Type annotation?
+
+A type annotation explicitly specifies the type of a variable or expression. Type annotations begin with a colon (:) and end with a type.
+
+let someTuple: (Double, Double) = (3.14159, 2.71828)
+func someFunction(a: Int) { /* ... */ }
