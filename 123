@@ -1,0 +1,20 @@
+Lightweight VS Heavy migrations ?
+
+Lightweight migrations: require very little work from our end. It is recommended to choose a lightweight migration over a heavy migration due too substantially low cost. It is less powerful than heavy migrations since it entertain lees changes. For example, a lightweight migration lets you add or rename attributes and entities, but you cannot modify the type of an attribute or the relationships between existing entities.
+
+To Support lightweight migrations to the CoreDataManager class, we need to make a minor change. we pass in a dictionary of options with two keys to addPersistentStore(ofType:configurationName:at:options:):
+
+NSInferMappingModelAutomaticallyOption: If the value of this key is set to true, Core Data attempts to infer the mapping model for the migration based on the data model versions of the data model.
+NSMigratePersistentStoresAutomaticallyOption: By setting the value of this key to true, we tell Core Data to automatically perform a migration if it detects an incompatibility.
+Heavy migrations are powerful, but that power comes at a cost. It require a lot of work and testing to make sure the migration completes successfully and, more importantly, without data loss.It is used when we make changes that Core Data cannot automatically infer for us by comparing versions of the data model. Core Data will then need a mapping model to understand how the versions of the data model relate to one another. To implement it we need to create custom mapping model.
+
+
+
+
+Облегченные миграции: требуют очень мало работы с нашей стороны. Рекомендуется предпочесть облегченную миграцию тяжелой миграции из-за слишком низкой стоимости. Он менее эффективен, чем интенсивные миграции, поскольку допускает изменения осадка. Например, облегченная миграция позволяет добавлять или переименовывать атрибуты и сущности, но вы не можете изменить тип атрибута или отношения между существующими сущностями.
+
+Чтобы поддерживать облегченные миграции в класс CoreDataManager, нам нужно внести незначительные изменения. мы передаем словарь опций с двумя ключами для addPersistentStore(OfType:ConfigurationName:at:options:):
+
+NSInferMappingModelAutomaticallyOption: Если значение этого ключа установлено в true, Core Data пытается определить модель сопоставления для миграции на основе версий модели данных data model.
+NSMigratePersistentStoresAutomaticallyOption: Устанавливая значение этого ключа равным true, мы сообщаем Core Data автоматически выполнять миграцию, если она обнаруживает несовместимость.
+Интенсивные миграции - это мощная сила, но за эту силу приходится платить. Требуется много работы и тестирования, чтобы убедиться, что миграция завершилась успешно и, что более важно, без потери данных.Он используется, когда мы вносим изменения, которые Core Data не может автоматически определить для нас путем сравнения версий модели данных. Затем Core Data потребуется модель сопоставления, чтобы понять, как версии модели данных соотносятся друг с другом. Чтобы реализовать это, нам нужно создать пользовательскую модель отображения.
