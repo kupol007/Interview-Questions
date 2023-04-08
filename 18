@@ -11,6 +11,17 @@ Another example of type erasure is the AnySequence type in Swift, which allows y
 
 We can create a custom type-erased publisher that wraps a concrete publisher like this:
 
+Стирание типов - это метод, используемый в Swift для скрытия или “стирания” конкретных типов значения, сохраняя при этом требуемое поведение и интерфейс этого типа. Обычно это достигается путем создания нового типа, который обертывает исходный тип и предоставляет более простой и универсальный интерфейс.
+
+Одним из распространенных вариантов использования удаления типов является работа со сложными типами или обобщениями, такими как те, которые используются в библиотеках реактивного программирования, таких как Combine или RxSwift. В этих библиотеках часто бывает так, что типы, возвращаемые различными функциями и операторами, могут быть довольно длинными и громоздкими, что затрудняет рассуждения о коде, который их использует.
+
+Чтобы решить эту проблему, можно использовать удаление типов, чтобы скрыть конкретные типы значений и упростить их интерфейсы. Например, вместо возврата publisher с сигнатурой сложного типа мы можем использовать тип AnyPublisher, который стирает информацию о базовом типе. Это позволяет нам работать с издателями более простым и обобщенным способом, не беспокоясь о специфике каждого отдельного издателя.
+
+Другим примером стирания типов является тип AnySequence в Swift, который позволяет вам обернуть любой тип последовательности и использовать его более общим способом. Удаляя базовый тип последовательности, мы можем обрабатывать различные типы последовательностей более единообразно, не беспокоясь об их конкретных реализациях.
+
+Мы можем создать пользовательский издатель со стиранием типов, который оборачивает конкретного издателя следующим образом:
+
+
 import Combine
 
 class AnyCustomPublisher<Input, Failure: Error>: Publisher {
@@ -49,6 +60,14 @@ The AnyCustomPublisher class also defines a private CustomPublisherBoxBase class
 The AnyCustomPublisher class then defines a private CustomPublisherBox class that subclasses the CustomPublisherBoxBase class and wraps the concrete publisher. The CustomPublisherBox class overrides the receive(subscriber:) method to pass through the subscription to the wrapped publisher.
 
 By creating a type-erased publisher like AnyCustomPublisher, we can hide the concrete publisher type and work with it in a more generic way. For example, we can create an instance of AnyCustomPublisher from any publisher that emits String values and use it to subscribe to a downstream subscriber:
+мы определяем издателя с удаленным типом AnyCustomPublisher, который оборачивает конкретного издателя. Класс AnyCustomPublisher принимает два общих параметра: Input, который является типом значения, которое выдает издатель, и Failure, который является типом ошибки, которую может выдать издатель.
+
+Класс AnyCustomPublisher также определяет частный класс CustomPublisherBoxBase, который предоставляет базовую реализацию метода receive(subscriber:), требуемого протоколом Publisher. Класс CustomPublisherBoxBase не может быть создан напрямую, но предназначен для создания подкласса.
+
+Затем класс AnyCustomPublisher определяет частный класс CustomPublisherBox, который является подклассом класса CustomPublisherBoxBase и оборачивает конкретного издателя. Класс CustomPublisherBox переопределяет метод receive(subscriber:) для передачи подписки обернутому издателю.
+
+Создав издателя со стиранием типов, такого как AnyCustomPublisher, мы можем скрыть конкретный тип издателя и работать с ним более общим способом. Например, мы можем создать экземпляр AnyCustomPublisher от любого издателя, который выдает строковые значения, и использовать его для подписки на нижестоящего подписчика:
+
 
 let publisher = Just(“Hello, world!”)
 let anyPublisher = AnyCustomPublisher(publisher)
@@ -57,3 +76,4 @@ print(“Received value: \(value)”)
 }
 
 we create a publisher that emits a single String value using the Just publisher. We then create an instance of AnyCustomPublisher from the publisher and use it to subscribe to a downstream subscriber using the sink operator. The type of the anyPublisher instance is erased, so we can work with it in a more generic way.
+мы создаем publisher, который выдает единственное строковое значение, используя Just publisher. Затем мы создаем экземпляр любого пользовательского издателя из publisher и используем его для подписки на нижестоящего подписчика с помощью оператора приемника. Тип экземпляра any Publisher стирается, поэтому мы можем работать с ним более общим способом.
