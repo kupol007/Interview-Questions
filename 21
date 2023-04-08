@@ -8,3 +8,13 @@ On Apple’s platforms, MVVM can be used in a variety of ways, depending on the 
 
 In addition, Apple’s SwiftUI framework provides built-in support for MVVM. With SwiftUI, the View is defined declaratively, and the ViewModel can be created as a separate struct or class that encapsulates the data and behavior for the view. SwiftUI also includes bindings, which allow the View to automatically update when the ViewModel changes, making it easy to keep the user interface in sync with the underlying data.
 
+
+
+
+MVVM расшифровывается как Model-View-ViewModel, который представляет собой шаблон проектирования, обычно используемый при разработке программного обеспечения для разделения задач пользовательского интерфейса и бизнес-логики.
+
+В шаблоне MVVM модель представляет данные приложения, Представление представляет пользовательский интерфейс, а ViewModel действует как посредник между моделью и представлением. ViewModel предоставляет данные и поведение для отображения представления, а также получает входные данные и события от представления, которые оно использует для обновления модели.
+
+На платформах Apple MVVM может использоваться различными способами, в зависимости от конкретной используемой технологии и фреймворка. Например, при разработке iOS с использованием Swift MVVM можно использовать для структурирования кода для контроллера представления и связанного с ним представления. ViewModel может обрабатывать бизнес-логику и управление данными, в то время как View может сосредоточиться на отображении данных и обработке пользовательского ввода.
+
+Кроме того, платформа SwiftUI от Apple обеспечивает встроенную поддержку MVVM. С SwiftUI представление определяется декларативно, и ViewModel может быть создан как отдельная структура или класс, который инкапсулирует данные и поведение для представления. SwiftUI также включает привязки, которые позволяют представлению автоматически обновляться при изменении ViewModel, что упрощает синхронизацию пользовательского интерфейса с базовыми данными.
