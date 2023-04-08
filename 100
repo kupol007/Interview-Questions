@@ -1,0 +1,12 @@
+Why we need multiple Persistent Store?
+
+App has a fixed data set that is included as part of the bundle
+Some of the data, app handles is sensitive information that we don’t wish to be persisted on disk
+Have different storage requirements for different entities
+You may have dealt with the first requirement by copying a file from your bundle into a writable location and using it as the base of your entire data store. You may have dealt with the second by manually deleting objects. A separate persistent store is a much better solution in both cases. Each persistent store has its own characteristics — it can be read-only, stored as binary or SQLite or in-memory (on OS X, an XML backing store is also available), or your own implementation of an NSIncrementalStore. It is possible to store different parts of your model in different persistent stores to take advantage of this flexibility.
+
+
+Приложение имеет фиксированный набор данных, который входит в комплект поставки
+Некоторые данные, обрабатываемые приложением, являются конфиденциальной информацией, которую мы не хотим сохранять на диске
+Имеют разные требования к хранилищу для разных объектов
+Возможно, вы справились с первым требованием, скопировав файл из вашего пакета в папку, доступную для записи, и используя его в качестве основы всего вашего хранилища данных. Возможно, вы разобрались со вторым, удалив объекты вручную. Отдельное постоянное хранилище - гораздо лучшее решение в обоих случаях. Каждое постоянное хранилище имеет свои собственные характеристики — оно может быть доступно только для чтения, храниться в двоичном формате или SQLite, или в памяти (в OS X также доступно резервное хранилище XML), или ваша собственная реализация NSIncrementalStore. Чтобы воспользоваться преимуществами этой гибкости, можно хранить разные части вашей модели в разных постоянных хранилищах.
