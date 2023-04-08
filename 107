@@ -1,0 +1,5 @@
+Is CoreData equals to SQLite or some wrapper?
+
+No, Core Data is a framework for managing an object graph. SQLite is a relational database. SQLite is a database while Core Data is not. Core Data can use SQLite as its persistent store, but the framework itself is not a database.
+
+Нет, Core Data - это платформа для управления графом объектов. SQLite - это реляционная база данных. SQLite - это база данных, а Core Data - нет. Core Data может использовать SQLite в качестве своего постоянного хранилища, но сама платформа не является базой данных.
