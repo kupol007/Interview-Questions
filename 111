@@ -1,0 +1,6 @@
+How to read only a few properties of an entity ?
+
+This can be achieved by propertiesToFetch instance property of Core Data.
+
+
+Это может быть достигнуто с помощью свойства экземпляра propertiesToFetch основных данных.
