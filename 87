@@ -1,0 +1,6 @@
+Explain 3 phase of layouts ?
+
+There are actually three phases associated with the layout and drawing of the views. The first is update of constraints (constraint pass), which happens bottom up. The second is layout of views and subviews (layout pass), which happens top down and is dependent on constraint settings. The third phase is the display pass, where the views get redrawn based on the layout pass.
+
+
+На самом деле существует три этапа, связанные с компоновкой и отрисовкой видов. Первый - это обновление ограничений (constraint pass), которое происходит снизу вверх. Второй - это компоновка представлений и подвидов (layout pass), которая выполняется сверху вниз и зависит от настроек ограничений. Третий этап - это этап отображения, на котором виды перерисовываются на основе этапа компоновки.
