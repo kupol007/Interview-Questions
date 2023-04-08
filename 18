@@ -1,0 +1,59 @@
+What is type erasure and when would you use it?
+
+
+Type erasure is a technique used in Swift to hide or “erase” the concrete types of a value, while still maintaining the required behavior and interface of that type. This is typically achieved by creating a new type that wraps the original type and provides a simpler, more generic interface.
+
+One common use case for type erasure is when dealing with complex types or generics, such as those used in reactive programming libraries like Combine or RxSwift. In these libraries, it’s often the case that the types returned by various functions and operators can be quite long and unwieldy, making it difficult to reason about code that uses them.
+
+To address this, type erasure can be used to hide the concrete types of values and simplify their interfaces. For example, instead of returning a publisher with a complex type signature, we can use an AnyPublisher type that erases the underlying type information. This allows us to work with publishers in a simpler and more generic way, without having to worry about the specifics of each individual publisher.
+
+Another example of type erasure is the AnySequence type in Swift, which allows you to wrap any sequence type and use it in a more generic way. By erasing the underlying sequence type, we can treat different types of sequences in a more uniform way, without having to worry about their specific implementations.
+
+We can create a custom type-erased publisher that wraps a concrete publisher like this:
+
+import Combine
+
+class AnyCustomPublisher<Input, Failure: Error>: Publisher {
+    private let box: CustomPublisherBoxBase<Input, Failure>
+
+    init<P: Publisher>(_ publisher: P) where P.Output == Input, P.Failure == Failure {
+        box = CustomPublisherBox(publisher)
+    }
+
+    func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Input == S.Input {
+        box.receive(subscriber: subscriber)
+    }
+}
+
+private class CustomPublisherBoxBase<Input, Failure: Error>: Publisher {
+    func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Input == S.Input {
+        fatalError("CustomPublisherBoxBase must be subclassed.")
+    }
+}
+
+private final class CustomPublisherBox<P: Publisher>: CustomPublisherBoxBase<P.Output, P.Failure> {
+    private let publisher: P
+
+    init(_ publisher: P) {
+        self.publisher = publisher
+    }
+
+    override func receive<S>(subscriber: S) where S: Subscriber, Failure == S.Failure, Input == S.Input {
+        publisher.receive(subscriber: subscriber)
+    }
+}
+we define a type-erased publisher AnyCustomPublisher that wraps a concrete publisher. The AnyCustomPublisher class takes two generic parameters: Input, which is the type of value that the publisher emits, and Failure, which is the type of error that the publisher can produce.
+
+The AnyCustomPublisher class also defines a private CustomPublisherBoxBase class that provides a base implementation of the receive(subscriber:) method required by the Publisher protocol. The CustomPublisherBoxBase class cannot be instantiated directly, but is designed to be subclassed.
+
+The AnyCustomPublisher class then defines a private CustomPublisherBox class that subclasses the CustomPublisherBoxBase class and wraps the concrete publisher. The CustomPublisherBox class overrides the receive(subscriber:) method to pass through the subscription to the wrapped publisher.
+
+By creating a type-erased publisher like AnyCustomPublisher, we can hide the concrete publisher type and work with it in a more generic way. For example, we can create an instance of AnyCustomPublisher from any publisher that emits String values and use it to subscribe to a downstream subscriber:
+
+let publisher = Just(“Hello, world!”)
+let anyPublisher = AnyCustomPublisher(publisher)
+anyPublisher.sink { value in
+print(“Received value: \(value)”)
+}
+
+we create a publisher that emits a single String value using the Just publisher. We then create an instance of AnyCustomPublisher from the publisher and use it to subscribe to a downstream subscriber using the sink operator. The type of the anyPublisher instance is erased, so we can work with it in a more generic way.
