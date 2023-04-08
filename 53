@@ -1,0 +1,11 @@
+What is the Swift main advantage ?
+
+Optional Types, which make applications crash-resistant
+Built-in error handling
+Closures
+Much faster compared to other languages
+Type-safe language
+Unified Memory Management (Complete ARC)
+Dynamic library inclusion (reduce size)
+Supports pattern matching
+Playground feature
