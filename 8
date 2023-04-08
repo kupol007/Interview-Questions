@@ -1,0 +1,13 @@
+What is the difference between an array and a set in Swift?
+
+Arrays and sets are two different collection types in Swift, each with its own strengths and weaknesses.
+
+An array is an ordered collection of values, meaning that the order of elements in an array is defined and can be accessed through the array’s index. Arrays are suitable for use cases where the order of elements is important. For example, you might use an array to represent a list of items to be displayed in a table view.
+
+let numbers = [1, 2, 3, 4, 5]
+let firstNumber = numbers[0] // 1
+A set, on the other hand, is an unordered collection of unique values. A set does not have a defined order, and it does not allow duplicate values. Sets are suitable for use cases where you need to check for membership or remove duplicates.
+
+let setOfNumbers = Set([1, 2, 3, 4, 5])
+let containsThree = setOfNumbers.contains(3) // true
+Overall, arrays are ordered collections of values, while sets are unordered collections of unique values. The choice between an array and a set depends on the specific requirements of your use case and the behavior you need from your collection.
