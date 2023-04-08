@@ -1,0 +1,115 @@
+Difference between value type and a reference type in iOS swift?
+
+
+This is one of the basics of every programming language. Most of us might have started programming with C language. If you still remember the function call by value and call by reference, you might get some idea about what this exactly is. let’s see what apple says about this.
+
+As the title says, there are two categories a type in swift can fall into:
+
+Value Type
+Reference Type
+Very basic definition:
+Value Type — each instance keeps a unique copy of its data. A type that creates a new instance (copy) when assigned to a variable or constant, or when passed to a function.
+
+Reference Type — each instances share a single copy of the data. A type that once initialized, when assigned to a variable or constant, or when passed to a function, returns a reference to the same existing instance.
+
+Have a look at the following gif to get a proper understanding about what you just read.
+
+
+Gif source: Internet
+Let’s do some coding
+Consider the following playground code block:
+
+
+reference types
+The above class Home doesn’t have any initialiser. The stored property roomCount has a default value of 2. Now, have a look at the first instance created called peterVilla. It will have a roomCount of 2.
+
+Now, create a new object called johnVilla and assign the pervious object to this like as in the code above. What do you think the roomCount of johnVilla will be? It will be same as roomCount of peterVilla right?. YES it is 2.
+
+Now change the roomCount of johnVilla to 5 and then print the roomCount of both the houses. Both will print the number 5.
+
+
+The reason :
+
+Class is a reference type. Copying a reference, implicitly creates a shared instance. After a copy, two variables then refer to a single instance of the data, so modifying data in the second variable also affects the original.
+
+Note: Class is a reference type. That means the variable of a class type does not store an actual instance, but a reference to a location in the memory(heap) that stores the instance.
+
+Question: What happens if we change the var to let in the above code block?
+Answer: Well, Nothing happens. Do the following and run the code:
+
+let peterVilla = Home()
+let johnVilla = peterVilla
+It will have no affect in the output. roomCount will be 5 in this case as well, Why??
+
+Since classes are reference objects, the only difference between let and var is the ability to reassign the variable to a different class of the same type. The let and var keywords do not affect the ability to change a variable on a class.
+
+But, consider the following code:
+
+
+The above code is pretty much self explanatory.
+
+Think in a simple way: Once we create a HOME or buy one and give it to a let constant, we can only change the roomCount. So, here John cannot upgrade his home since it’s immutable (let). We cannot create a new HOME or change it. let will be angry on us 🤬😡🤬😡. I think you got it now!!
+
+What if johnVilla is a var??
+If johnVilla was a var , then it is mutable and he can upgrade or change his home any number of times. Just have a look at the following code:
+
+
+What will happen if Home is a struct???
+Consider the following playground code block. Here Home is a struct.
+
+
+Since, here Home is a struct, and johnVilla being a let constant, we cannot change the roomCount like we did for a class in the previous section.
+
+This is because struct is a value type and using let on a struct makes that object a constant. It cannot be changed or reassigned and neither can its variables. A struct created as a var can have its variables changed.
+
+So, reassigning the value of johnVilla will also fail.
+
+let peterVilla = Home()
+let johnVilla = peterVilla
+johnVilla = Home()
+//error: cannot assign to value: ‘johnVilla’ is a ‘let’ constant
+Note: SO, For Value types , if we want to reassign the object or change the variable inside the object, it should be declared as mutable (‘var’).
+
+
+The above code is simple . It covers all the aspects like reassigning the value and changing the member variable. Though we are assigning peterVilla to johnVilla in line 44 , johnVilla is an independent instance with its own unique copy of peterVilla's data.
+
+Note: When you are mutating a value type in swift, you are not actually mutating the value. You are mutating the variable holding the value.
+
+That being said, struct is not the only value type and class is not the only reference type in swift. Here are some examples:
+
+
+Swift represents a reference type as a class. This is similar to Objective-C, where everything that inherits from NSObject is stored as a reference type.
+
+When do we choose a Value Type over a Reference Type?
+Source: Apple Docs
+
+So if you want to build a new type, how do you decide which kind to make? When you’re working with Cocoa, many APIs expect subclasses of NSObject, so you have to use a class. For the other cases, here are some guidelines:
+
+Use a value type when:
+Comparing instance data with == makes sense. A double equal operator (aka ==) compares values.
+You want copies to have independent state.
+The data will be used in code across multiple threads. So that you don’t have to worry about the data being changed from another thread.
+Use a reference type (e.g. use a class) when:
+Comparing instance identity with === makes sense. === checks if two objects are exactly identical, right down to the memory address that stores the data.
+You want to create shared, mutable state.
+How Reference and Value types are stored in memory ?
+Value Type — Get Stored on Stack Memory.
+Reference Type — Get Stored on Managed Heap Memory.
+Differences between Stack and Heap!
+As mentioned earlier, reference type instances are stored in heap and instances of a value type such as struct resides in a region of memory called stack. If the value type instance is part of a class instance, the value is stored in the heap along with the class instance.
+
+Stack is used for static memory allocation and Heap for dynamic memory allocation, both stored in the computer’s RAM .
+
+For reference types, the reference is stored on the stack while the object it refers to is stored on the heap. For value types, the object itself is stored on the stack.
+
+Since reference types are always stored on the heap, anything they contain (even value types) is also stored on the heap. For ex: If a class has a struct instance inside it, then the struct instance will be stored in the heap along with the class instance.
+
+In short: Reference types always goes to the Heap, whereas Value Types always go where they are declared.
+
+Reference : QUORA and few other sites
+
+→ Stack is tightly managed and optimized by the CPU. When a function creates a variable, the stack stores that variable and is destroyed when the function exits. Variables allocated on the stack are stored directly to the memory and access to this memory is very fast. When a function or a method calls another function which in turns calls another function etc., the execution of all those functions remains suspended until the very last function returns its value. The stack is always reserved in a LIFO order, the most recently reserved block is always the next block to be freed. This makes it really simple to keep track of the stack, freeing a block from the stack is nothing more than adjusting one pointer. Since the stack is very well organized, it is very efficient and fast.
+
+→The system uses the heap to store data referenced by other objects. The heap is generally a large pool of memory from which the system can request and dynamically allocate blocks of memory. The heap doesn’t automatically destroy its object like the stack does. External work has to be done to do this. ARC does the job in apple devices. Reference count is tracked by the ARC and when it becomes zero, the object is deallocated. Hence, the overall process (allocation , tracking the references and deallocation) is slower compared to stack. So value types are faster than reference types.
+
+
