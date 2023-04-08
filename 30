@@ -1,0 +1,9 @@
+How you are using Core Data? Can you give examples?
+
+Core Data is commonly used in iOS, macOS, and other Apple platforms.
+
+To store application data: Core Data can be used to store application data, such as user settings, preferences, and other application-specific data. For example, a note-taking application might use Core Data to store notes, tags, and other metadata about the notes.
+To build a local database: Core Data can be used to build a local database for an application. For example, a recipe app might use Core Data to store recipes, ingredients, and other information about recipes, so that users can access the information even when they are offline.
+To provide offline support: Core Data can be used to provide offline support for an application that relies on a cloud-based backend. For example, a messaging app might use Core Data to store messages and conversations locally, so that users can access their messages even when they are offline.
+To support undo and redo: Core Data provides built-in support for undo and redo operations, which can be used to implement undo and redo functionality in an application. For example, a drawing app might use Core Data to store a history of changes made to a drawing, so that users can undo and redo changes as needed.
+To manage relationships between data: Core Data provides a robust object graph management system that can be used to manage relationships between data. For example, a social networking app might use Core Data to manage relationships between users, posts, comments, and other data, and to ensure that changes made to one object are automatically propagated to related objects.
