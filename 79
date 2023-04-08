@@ -1,0 +1,3 @@
+What should we do when the keyboard appears and hides some parts of the UI that are important — logic implementation ?
+
+This can be resolved by using scrollview and keyboard notification delegates. Apple docs for more detail.
