@@ -5,3 +5,14 @@ A type alias declaration introduces a named alias of an existing type into your 
 typealias MyDict = Dictionary<String, Int>
 
 After a type alias is declared, the aliased name can be used instead of the existing type everywhere in your program. The existing type can be a named type or a compound type. Type aliases do not create new types; they simply allow a name to refer to an existing type.
+
+
+
+
+Определить псевдоним типа?
+
+Объявление псевдонима типа вводит именованный псевдоним существующего типа в вашу программу. Объявления псевдонимов типов объявляются с использованием ключевого слова typealias.
+
+typealias MyDict = Словарь<Строка, Int>
+
+После объявления псевдонима типа псевдонимное имя может использоваться вместо существующего типа везде в вашей программе. Существующий тип может быть именованным типом или составным типом. Псевдонимы типов не создают новых типов; они просто позволяют имени ссылаться на существующий тип.
