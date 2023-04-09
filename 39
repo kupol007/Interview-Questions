@@ -7,3 +7,14 @@ Use reduce to combine all items in a collection to create a single new value.
 
 
 To see all methods available from Sequence, take a look at the Sequence docs.
+
+
+фильтровать ПРОТИВ уменьшения
+
+Используйте filter для перебора коллекции и возврата массива, содержащего только те элементы, которые соответствуют условию включения.
+
+Используйте reduce, чтобы объединить все элементы в коллекции для создания единого нового значения.
+
+
+
+Чтобы ознакомиться со всеми методами, доступными в Sequence, ознакомьтесь с документами Sequence docs.
