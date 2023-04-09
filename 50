@@ -1,3 +1,9 @@
 Explain what is defer ?
 
 defer keyword which provides a block of code that will be executed in the case when execution is leaving the current scope. Nice article by NSHipster.
+
+
+
+Объясните, что такое отсрочка?
+
+ключевое слово defer, которое предоставляет блок кода, который будет выполнен в случае, когда выполнение выходит за пределы текущей области. Хорошая статья от NSHipster.
