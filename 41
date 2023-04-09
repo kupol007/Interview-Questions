@@ -1,6 +1,7 @@
-Type safety & Type Inference ?
-
 Type Safety: Swift is a type-safe language. A type safe language encourages you to be clear about the types of values your code can work with. If part of your code expects a String, you can’t pass it an Int by mistake.
+
+
+Безопасность типов: Swift - это типобезопасный язык. Типобезопасный язык побуждает вас четко представлять, с какими типами значений может работать ваш код. Если часть вашего кода ожидает строку, вы не можете передать ей значение Int по ошибке.
 
 var welcomeMessage: String
 welcomeMessage = 22 // this would create an error because you  
