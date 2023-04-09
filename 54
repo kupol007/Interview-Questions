@@ -6,3 +6,14 @@ Wildcard patterns match and ignore any kind and type of value.
 Optional patterns are used to match optional values.
 Enumeration case patterns match cases of existing enumeration types.
 Expression patterns allow you to compare a given value against a given expression.
+
+
+
+Пожалуйста, объясните методы сопоставления шаблонов Swift?
+
+Шаблоны кортежей используются для сопоставления значений соответствующих типов кортежей.
+Шаблоны приведения типов позволяют создавать или сопоставлять типы.
+Шаблоны подстановочных знаков соответствуют любому виду значения и игнорируют его.
+Необязательные шаблоны используются для сопоставления необязательных значений.
+Шаблоны регистров перечисления соответствуют регистрам существующих типов перечислений.
+Шаблоны выражений позволяют сравнивать заданное значение с заданным выражением.
