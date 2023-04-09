@@ -10,3 +10,19 @@ Like == in Obj-C (pointer equality).
 Checks if the values are the same.
 Comparing value types.
 Like isEqual: in Obj-C (However, you can override isEqual in Obj-C).
+
+
+
+
+Объясните идентичный оператор?
+ 
+ В swift 3 и выше
+
+=== (или !==)
+Проверяет, идентичны ли значения (оба указывают на один и тот же адрес памяти).
+Сравнение ссылочных типов.
+Как == в Obj-C (равенство указателей).
+== (или !=)
+Проверяет, совпадают ли значения.
+Сравнение типов значений.
+Like равен: в Obj-C (однако вы можете переопределить isEqual в Obj-C).
