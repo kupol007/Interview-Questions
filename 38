@@ -3,3 +3,11 @@ map vs flatmap
 Use map to loop over a collection and apply the same operation to each element in the collection. The map function returns an array containing the results of applying a mapping or transform function to each item
 
 Use flatMap to iterate and flatten a collection of collections. It is also removes optionals and nil in resultant array. More detail.
+
+
+
+карта против плоской карты
+
+Используйте map для перебора коллекции и применения одной и той же операции к каждому элементу в коллекции. Функция map возвращает массив, содержащий результаты применения функции сопоставления или преобразования к каждому элементу
+
+Используйте flatMap для итерации и выравнивания коллекции коллекций. Это также удаляет необязательные значения и nil в результирующем массиве. Более подробно.
