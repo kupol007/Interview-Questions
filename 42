@@ -4,3 +4,8 @@ A type annotation explicitly specifies the type of a variable or expression. Typ
 
 let someTuple: (Double, Double) = (3.14159, 2.71828)
 func someFunction(a: Int) { /* ... */ }
+
+
+Введите аннотацию?
+
+Аннотация типа явно указывает тип переменной или выражения. Примечания к типам начинаются с двоеточия (:) и заканчиваются типом.
