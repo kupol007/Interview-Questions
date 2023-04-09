@@ -1,3 +1,8 @@
 Explain Forced Unwrapping ?
 
 When we define a variable as optional, then to get the value from it, we need to unwrap it. This just means putting an exclamation mark at the end of the variable.
+
+
+Объясните принудительное разворачивание?
+
+Когда мы определяем переменную как необязательную, то, чтобы получить из нее значение, нам нужно развернуть ее. Это просто означает постановку восклицательного знака в конце переменной.
