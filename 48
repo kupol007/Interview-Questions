@@ -5,3 +5,13 @@ When we’re casting an object to another type in Objective-C, it’s pretty sim
 as used for upcasting and type casting to bridged type
 as? used for safe casting, return nil if failed
 as! used to force casting, crash if failed. should only be used when we know the downcast will succeed.
+
+
+
+Что такое даункастинг?
+
+Когда мы приводим объект к другому типу в Objective-C, это довольно просто, поскольку есть только один способ сделать это. Однако в Swift есть два способа разыгрывания — один безопасный, а другой нет.
+
+как используется для апкастинга и приведения типа к мостовому типу
+as? используется для безопасного приведения, возвращает nil в случае сбоя
+как! используется для принудительного приведения к сбою в случае сбоя. следует использовать только тогда, когда мы знаем, что подавление будет успешным.
