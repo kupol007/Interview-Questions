@@ -3,3 +3,10 @@ What is Nil Coalescing & Ternary Operator ?
 The ternary conditional operator is a special operator with three parts, which takes the form question ? answer1 : answer2. It’s a shortcut for evaluating one of two expressions based on whether question is true or false. If question is true, it evaluates answer1 and returns its value; otherwise, it evaluates answer2 and returns its value.
 
 The nil-coalescing operator (a ?? b) unwraps an optional a if it contains a value, or returns a default value b if a is nil. The expression a is always of an optional type. The expression b must match the type that is stored inside a. Apple Doc.
+
+
+Что такое нулевой объединяющий и троичный оператор ?
+
+Троичный условный оператор - это специальный оператор из трех частей, который принимает вид вопрос? ответ1 : ответ2. Это короткий путь для вычисления одного из двух выражений на основе того, является ли вопрос истинным или ложным. Если вопрос имеет значение true, он оценивает ответ 1 и возвращает его значение; в противном случае он оценивает ответ 2 и возвращает его значение.
+
+Оператор объединения с нулем (a ?? b) разворачивает необязательный a, если он содержит значение, или возвращает значение по умолчанию b, если a равно нулю. Выражение a всегда имеет необязательный тип. Выражение b должно соответствовать типу, который хранится внутри. Apple Dock.
