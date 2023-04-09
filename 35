@@ -4,3 +4,6 @@ unowned does the same as weak with one exception: The variable will not become n
 
 By declaring it [weak self] you get to handle the case that it might be nil inside the closure at some point and therefore the variable must be an optional. A case for using [weak self] in an asynchronous network request, is in a view controller where that request is used to populate the view.
 
+unowned выполняет то же самое, что и weak, за одним исключением: переменная не станет nil, и поэтому переменная не должна быть необязательной.
+
+Объявляя это [слабое self], вы получаете возможность обработать случай, когда в какой-то момент внутри замыкания может быть nil, и поэтому переменная должна быть необязательной. Примером использования [weak self] в асинхронном сетевом запросе является контроллер представления, где этот запрос используется для заполнения представления.
