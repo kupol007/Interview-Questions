@@ -4,3 +4,8 @@ Closures VS blocks
 
 Closures have similar capture semantics as blocks but differ in one key way: Variables are mutable rather than copied. In other words, the behavior of __block in Objective-C is the default behavior for variables in Swift.”
 
+Замыкания ПРОТИВ блоков
+
+“Swift closures и блоки Objective-C совместимы, поэтому вы можете передавать Swift closures методам Objective-C, которые ожидают блоки. Замыкания Swift и функции имеют один и тот же тип, поэтому вы даже можете передать имя функции Swift.
+
+Замыкания имеют ту же семантику захвата, что и блоки, но отличаются одним ключевым моментом: переменные изменяемы, а не копируются. Другими словами, поведение __block в Objective-C является поведением по умолчанию для переменных в Swift.”
