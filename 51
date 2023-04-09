@@ -1,3 +1,8 @@
 What are benefits of Guard ?
 
 There are two big benefits to guard. One is avoiding the pyramid of doom, avoids lots of annoying if-let statements nested inside each other, moving further and further to the right. The other benefit is provide an early exit out of the function using break, continue or return.
+
+
+В чем преимущества Guard?
+
+У охраны есть два больших преимущества. Один из них - избегать пирамиды судьбы, избегать множества раздражающих операторов if-let, вложенных друг в друга, продвигаясь все дальше и дальше вправо. Другим преимуществом является обеспечение раннего выхода из функции с помощью break, continue или return.
