@@ -2,7 +2,51 @@ Explain generics in Swift ?
 
 Generics create code that does not get specific about underlying data types. A good detailed article.
 
+How do you create and use generics in Swift?
+Generics are a way to write flexible and reusable code, by allowing you to specify placeholder types that are replaced with concrete types when your code is compiled. To create a generic type or function in Swift, you use the <T> syntax, where T is the placeholder type. For example:
+struct MyGenericStruct<T> {
+    var value: T
+}
+func myGenericFunction<T>(x: T, y: T) -> T {
+    return x
+}
+To use a generic type or function, you specify the concrete type you want to use in place of the placeholder type. For example:
+let myString = MyGenericStruct<String> (value: "hello")
+let myInt = myGenericFunction(x: 1, y: 2) // 1
+
 
 Объясните дженерики в Swift?
 
 Дженерики создают код, который не конкретизирует базовые типы данных. Хорошая подробная статья.
+
+
+
+
+What is Generics ?
+Generic code enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define.
+Understanding it with an example :
+Suppose you want to swap to values of type Int , lets write a non-generic functions :
+func swapTwoInts(_ a: inout Int, _ b: inout Int) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}var num1 = 4
+var num2 = 5
+swapTwoInts(&num1 , &num2)
+Now , suppose you want to swap two double values or two string values , you will need to write another function for that , because the above function is accepting only for Int type .
+What if we have a function which accept any type of values and swap them , this is what generic do .
+Now lets do the same thing with a generic function :
+func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
+}
+var num1 = 3
+var num2 = 4
+swapTwoValues(&num1 , &num2)var str1 = "sdf"
+var str2 = "dafdf"
+swapTwoValues(&str1 , &str2)
+Now you can swap any type of values , you dont need to write different different function to swap different different type of values.
+T is a placeholder , called as type parameter .
+We use array in swift which is also a generic type
+Array <Element> , Dictionary<Key , Value>

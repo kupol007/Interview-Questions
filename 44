@@ -6,7 +6,54 @@ if let constantName = someOptional {
    statements
 }
 
+var authorName : String? = "Mohd Yasir"if let authorName == authorName {
+    print("Author name is \(authorName)")
+else{
+    print("No Author Name")
+}
+
 
 Необязательная привязка?
 
 Используйте необязательную привязку, чтобы выяснить, содержит ли необязательное значение, и если да, то сделать это значение доступным в качестве временной константы или переменной.
+
+
+
+What is an Optional ?
+Optionals are Swift’s solution to the problem of representing both a value and the absence of a value. An optional is allowed to hold either a value or nil.
+
+
+
+
+In what ways you could Unwrap an optional ?
+We can unwrap any optional in following ways :
+By Optional Binding
+By Force Unwrapping
+By Guard Statement
+By Nil Coalescing
+
+
+
+By Force Unwrapping
+To force unwrap , we use “!” .
+var authorName : String? = "Mohd Yasir"
+print("Auhor name : \(authorName!)")
+
+
+
+Guard Statement
+Sometimes you want to check a condition and only continue executing a function if the condition is true, such as when you use optionals. Imagine a function that fetches some data from the network. That fetch might fail if the network is down. The usual way to encapsulate this behavior is using an optional, which has a value if the fetch succeeds, and nil otherwise.
+Swift has a useful and powerful feature to help in situations like this: the guard statement.
+func testingGuard( _ name : String?){
+    guard let unrappedname = name else {
+        print("You dont entered any name")
+        return 
+    }
+    print("Hello , \(unrappedname)")
+}
+
+
+
+Nil Coalescing
+let name = String? = nil
+let unwrappedName = name5 ?? "Unkonwn"

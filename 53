@@ -10,7 +10,18 @@ Dynamic library inclusion (reduce size)
 Supports pattern matching
 Playground feature
 
-
+How do you use closures in Swift?
+Closures are self-contained blocks of functionality that can be passed around and used in your code. In Swift, closures are first-class citizens, which means they can be assigned to variables and constants , passed as arguments to functions, and returned from functions.
+To create a closure in Swift, you use the {} syntax, and specify the parameters, return type, and body of the closure. For example:
+let myClosure = { (x: Int, y: Int) -> Int in
+    return x + y
+}
+To use a closure, you can simply call it like a function, and pass in the required arguments. For example:
+let result = myClosure(1, 2) // 3
+You can also use the trailing closure syntax, which allows you to place the closure after the function call, like this:
+myFunction() { (x: Int, y: Int) -> Int in
+    return x + y
+}
 
 
 В чем главное преимущество Swift?

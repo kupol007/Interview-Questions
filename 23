@@ -73,3 +73,23 @@ print(rectangle.perimeter) // 30
 print(sphere.area) // 113.09733552923254
 print(sphere.volume) // 113.09733552923254
 In this example, we defined three protocols for shapes, and then created two structs that adopt the protocols. We then used the protocols to calculate the area and volume of different shapes.
+
+
+
+What are Protocols ?
+Its a blueprint of methods, properties, and other requirements that suit a particular task and it could adopted by a class , structure or enumeration .
+Protocol does not include any implementation !!!!
+Type which is adopting the protocol , should have all the methods which are present in given protocol . And this action is called conforming protocol .
+Its syntax looks like :
+protocol Vehicle {
+  func accelerate()
+  func stop()
+}class Unicycle : Vehicle {
+  var peddling = false
+  func accelerate(){
+    peddling = true
+  }
+  func stop() {
+    peddling = false
+  }
+}

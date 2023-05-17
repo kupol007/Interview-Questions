@@ -20,3 +20,9 @@ For Mutability, implement immutable and mutable class variants.
 Heap is expensive.
 Takes longer time to initialize.
 Objects have 2 machine word of overhead: one points to mata class objects and other contains reference count and other booking keep data objects.
+
+
+
+
+What about Mutability in Swift ?
+Constant(let) are constant in swift and variable(var) varies .

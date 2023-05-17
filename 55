@@ -1,3 +1,29 @@
 How is an “inout” parameter different from a regular parameter?
 
 A Inout passes by reference while a regular parameter passes by value.
+
+
+
+
+Can you explain the difference between an inout parameter and a return value in Swift?
+In Swift, function parameters can be either passed by value or passed by reference. When a parameter is passed by value, a copy of the value is made and passed to the function, so any changes made to the parameter inside the function are not visible outside of the function.
+On the other hand, when a parameter is passed by reference, a reference to the original value is passed to the function, so any changes made to the parameter inside the function are visible outside of the function. In Swift, this is done using the inout keyword.
+Here is an example of how to use an inout parameter in Swift:
+Here is an example of how to use an inout parameter in Swift:
+func increment(_ number: inout Int) {
+    number += 1
+}
+var x = 0
+increment(&x)
+print(x) // Output: 1
+In this example, the increment(_:) function takes an inout parameter of type Int, which means that the original value of the x variable is passed to the function and any changes made to the number parameter inside the function are visible outside of the function.
+On the other hand, a function can return a value to the caller using the return keyword. This allows the function to pass a value back to the caller, which can be used to modify the caller's state or used in an expression.
+Here is an example of how to use a return value in Swift:
+func double(_ number: Int) -> Int {
+    return number * 2
+}
+var y = 5
+y = double(y)
+print(y) // Output: 10
+In this example, the double(_:) function takes a parameter of type Int and returns a value of type Int, which is the result of doubling the input number. The returned value is then assigned to the y variable, so the final value of y is equal to 10.
+

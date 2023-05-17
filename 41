@@ -10,3 +10,12 @@ Type Inference: If you don’t specify the type of value you need, Swift uses ty
 
 var meaningOfLife = 42 // meaningOfLife is inferred to be of type Int
 meaningOfLife = 55 // it Works, because 55 is an Int
+
+
+
+What is Type Inference ?
+In short its an ability of swift . You dont always need to write types of variables and constant you making in your code . For example :
+// swift know its Int type
+var age = 40 // Int 
+// You dont need to tell them always like below
+var age : Int = 40

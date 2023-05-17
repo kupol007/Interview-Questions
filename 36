@@ -12,6 +12,16 @@ Define and use new nested types
 Make an existing type conform to a protocol
 In Swift, you can even extend a protocol to provide implementations of its requirements or add additional functionality that conforming types can take advantage of. For more details, see Protocol Extensions.
 
+Extensions are a way to add new functionality to an existing class, structure, enumeration, or protocol. To create an extension in Swift, you use the extension keyword, and specify the type you are extending. For example:
+extension Int {
+    func square() -> Int {
+        return self * self
+    }
+}
+To use an extension, you can simply access the new methods and properties on the original type, like this:
+let number = 4
+let squared = number.square() // 16
+
 
 
 Расширение в swift?
@@ -27,3 +37,23 @@ In Swift, you can even extend a protocol to provide implementations of its requi
 Определять и использовать новые вложенные типы
 Приведите существующий тип в соответствие с протоколом
 В Swift вы даже можете расширить протокол, чтобы обеспечить реализацию его требований, или добавить дополнительную функциональность, которой могут воспользоваться соответствующие типы. Для получения более подробной информации см. раздел Расширения протокола.
+
+
+
+
+
+What are Subscripts ?
+With subscripts you can quickly access the member elements of collections.
+A subscript consists of:
+The name of the collection, such as scores
+Two square brackets [ and ]
+A key or index inside the brackets
+By default, you can use subscripts with arrays, dictionaries, collections, lists and sequences. You can also implement your own with the subscript function.
+subscript(parameterList) -> ReturnType {
+ get {
+ // return someValue of ReturnType
+ }
+ set(newValue) {
+ // set someValue of ReturnType to newValue
+ }
+ 

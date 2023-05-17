@@ -21,3 +21,15 @@ Overall, immutability provides a number of benefits in Swift, including predicta
 Простота: Неизменяемые объекты могут упростить ваш код, потому что вам не нужно беспокоиться о неожиданном изменении состояния объекта. Это облегчает понимание и поддержку вашего кода.
 Улучшенное управление памятью: Неизменяемые объекты не требуют ручного управления памятью, поскольку они автоматически управляются средой выполнения Swift. Это снижает риск утечек памяти или других проблем, связанных с памятью.
 В целом, неизменяемость обеспечивает ряд преимуществ в Swift, включая предсказуемость, потокобезопасность, повышенную производительность, простоту и лучшее управление памятью. Используя неизменяемые объекты, вы можете сделать свой код более надежным, ремонтопригодным и масштабируемым, а также снизить риск ошибок и других проблем.
+
+
+
+What kind of memory allocations takes place in Swift ?
+In short Stack and Heap
+When you create a reference type such as class, the system stores the actual instance in a region of memory known as the heap. Instances of a value type such as a struct resides in a region of memory called the stack .
+
+
+
+What is the difference between stack and heap memory ?
+The system uses the stack to store anything on the immediate thread of execution; it is tightly managed and optimized by the CPU. When a function creates a variable, the stack stores that variable and then destroys it when the function exits. Since the stack is so strictly organized, it’s very efficient, and thus quite fast.
+The system uses the heap to store instances of reference types. The heap is generally a large pool of memory from which the system can request and dynamically allocate blocks of memory. Lifetime is flexible and dynamic. The heap doesn’t automatically destroy its data like the stack does; additional work is required to do that. This makes creating and removing data on the heap a slower process, compared to on the stack.

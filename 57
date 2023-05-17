@@ -5,3 +5,34 @@ Classes, structures, and enumerations can define computed properties, which do n
 A computed property with a getter but no setter is known as a read-only computed property. It always returns a value, and cannot be set to a different value.
 
 NOTE: You must declare computed properties — including read-only computed properties — as variable properties with the var keyword, because their value is not fixed. The let keyword is only used for constant properties, to indicate that their values cannot be changed once they are set as part of instance initialization.
+
+
+Can you explain the difference between a stored property and a computed property in Swift?
+In Swift, properties are used to store and manage values associated with an instance of a type. There are two types of properties in Swift: stored properties and computed properties.
+A stored property is a property that has a value stored directly, which means that it occupies a specific location in memory. This means that a stored property must have a default value or an initial value set when the instance is created.
+A computed property is a property that does not have a value stored directly, but instead has a getter and an optional setter that are used to compute the property’s value on-demand. This means that a computed property does not have a fixed memory location and its value is calculated each time it is accessed.
+Here is an example of how to use stored and computed properties in Swift:
+struct Circle {
+    // Stored property
+    var radius: Double = 1.0
+    // Computed property
+    var circumference: Double {
+        get {
+            return 2 * .pi * radius
+        }
+        set {
+            radius = newValue / (2 * .pi)
+        }
+    }
+}
+var circle = Circle()
+// Access the stored property directly
+print(circle.radius) // Output: 1.0
+// Access the computed property using the getter
+print(circle.circumference) // Output: 6.283185307179586
+// Access the computed property using the setter
+circle.circumference = 12.566370614359172
+// Access the stored property directly
+print(circle.radius) // Output: 2.0
+In this example, the Circle struct has a stored property named radius and a computed property named circumference. The circumference property has a getter and a setter, which are used to compute the value of the property based on the value of the radius property.
+
