@@ -1,0 +1,15 @@
+How do you create and use protocols in Swift?
+
+
+Protocols define a blueprint of methods, properties, and other requirements that a conforming type must implement. To create a protocol in Swift, you use the protocol keyword, and specify the requirements that conforming types must implement. For example:
+protocol MyProtocol {
+    var myProperty: Int { get set }
+    func myMethod()
+}
+To use a protocol, you can define a type that conforms to the protocol, and implement the required methods and properties. For example:
+struct MyStruct: MyProtocol {
+    var myProperty: Int
+    func myMethod() {
+        // Implement the method
+    }
+}
