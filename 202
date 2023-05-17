@@ -1,0 +1,10 @@
+How do you create and use singletons in Swift?
+
+
+A singleton is a design pattern that ensures a class has only one instance, and provides a global point of access to it. To create a singleton in Swift, you can use the static keyword to create a static instance of the class, and use a dispatch_once block to initialize the instance only once. For example:
+class MySingleton {
+    static let sharedInstance = MySingleton()
+    private init() {}
+}
+To access the singleton instance, you can use the sharedInstance property, like this:
+let singleton = MySingleton.sharedInstance
