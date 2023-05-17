@@ -1,0 +1,17 @@
+How do you implement error handling in Swift?
+
+
+In Swift, errors are represented by values of types that conform to the Error protocol. To throw an error, you use the throw keyword, and to catch an error, you use a do-catch block. For example:
+
+
+enum MyError: Error {
+    case invalidValue
+}
+func myFunction() throws {
+    throw MyError.invalidValue
+}
+do {
+    try myFunction()
+} catch MyError.invalidValue {
+    // Handle the error
+}
