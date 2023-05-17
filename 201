@@ -1,0 +1,9 @@
+How do you implement concurrency in Swift?
+
+
+One way to implement concurrency in Swift is by using the DispatchQueue class to perform tasks concurrently. For example, the following code creates a concurrent DispatchQueue to perform a task in the background:
+let concurrentQueue = DispatchQueue(label: "myConcurrentQueue", attributes: .concurrent)
+concurrentQueue.async {
+    // Perform task in the background
+}
+
